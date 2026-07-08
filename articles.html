@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>UU远程控制使用教程与技巧 - 文章列表</title>
+<meta name="description" content="UU远程控制使用教程、安装指南、功能设置与问题排查文章合集，帮助您快速掌握远程控制技巧">
+<meta name="keywords" content="UU远程控制教程,UU远控使用指南,远程控制教程,UU远程设置">
+<link rel="canonical" href="https://www.uuyckz.com.cn/articles.html">
+<link rel="alternate" hreflang="zh-CN" href="https://www.uuyckz.com.cn/articles.html">
+<meta property="og:title" content="UU远程控制使用教程与技巧 - 文章列表">
+<meta property="og:description" content="UU远程控制使用教程、安装指南、功能设置与问题排查文章合集">
+<meta property="og:url" content="https://www.uuyckz.com.cn/articles.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UU远程控制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UU远程控制使用教程与技巧 - 文章列表">
+<meta name="twitter:description" content="UU远程控制使用教程、安装指南、功能设置与问题排查文章合集">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%231a0a10' width='32' height='32' rx='6'/><path d='M16 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z' fill='%23f59e0b'/><path d='M8 22l3 4h10l3-4' stroke='%23f59e0b' stroke-width='1.5' fill='none'/></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a0a10;color:#f8f0f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.7}
+img{max-width:100%;height:auto;object-fit:cover}
+a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,10,16,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,158,11,0.1);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:8px;color:#f59e0b;font-weight:700;font-size:1.15rem}
+.nav-logo svg{width:28px;height:28px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:#aa8888;font-size:0.92rem;transition:color 0.2s}
+.nav-links a:hover{color:#f59e0b}
+.mobile-toggle{display:none;background:none;border:none;color:#f59e0b;font-size:1.5rem;cursor:pointer}
+.page-header{padding:100px 24px 40px;text-align:center}
+.page-header h1{font-size:2rem;font-weight:800;margin-bottom:12px;color:#f8f0f0}
+.page-header p{color:#aa8888;max-width:600px;margin:0 auto}
+.container{max-width:1100px;margin:0 auto;padding:0 24px 80px}
+.articles-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.article-item{background:#2a1520;border:1px solid rgba(245,158,11,0.1);border-radius:12px;padding:28px;display:flex;gap:20px;transition:transform 0.2s,border-color 0.2s}
+.article-item:hover{transform:translateY(-3px);border-color:rgba(245,158,11,0.25)}
+.article-icon{flex-shrink:0;width:48px;height:48px;color:#f59e0b}
+.article-body{flex:1}
+.article-body h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;line-height:1.5}
+.article-body h3 a{color:#f8f0f0;transition:color 0.2s}
+.article-body h3 a:hover{color:#f59e0b}
+.article-meta{color:#aa8888;font-size:0.82rem;margin-bottom:10px}
+.article-meta span{margin-right:16px}
+.article-excerpt{color:#aa8888;font-size:0.9rem;line-height:1.7}
+.footer{background:#2a1520;border-top:1px solid rgba(245,158,11,0.1);padding:32px 24px;text-align:center}
+.footer p{color:#aa8888;font-size:0.82rem}
+.footer a{color:#aa8888;margin:0 12px;font-size:0.82rem;transition:color 0.2s}
+.footer a:hover{color:#f59e0b}
+@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.articles-list{grid-template-columns:1fr}.page-header h1{font-size:1.5rem}}
+@media(max-width:480px){.article-item{flex-direction:column;gap:12px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="https://www.uuyckz.com.cn/" class="nav-logo">
+    <svg viewBox="0 0 32 32"><rect fill="#1a0a10" width="32" height="32" rx="6"/><path d="M16 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z" fill="#f59e0b"/><path d="M8 22l3 4h10l3-4" stroke="#f59e0b" stroke-width="1.5" fill="none"/></svg>
+    UU远程控制
+  </a>
+  <div class="nav-links">
+    <a href="https://www.uuyckz.com.cn/">首页</a>
+    <a href="https://www.uuyckz.com.cn/download.html">下载</a>
+    <a href="https://www.uuyckz.com.cn/articles.html">教程</a>
+  </div>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="菜单">&#9776;</button>
+</nav>
+
+<div class="page-header">
+  <h1>使用教程与技巧</h1>
+  <p>UU远程控制下载安装、功能设置、问题排查等实用教程</p>
+</div>
+
+<div class="container">
+  <div class="articles-list" id="articles-container"></div>
+</div>
+
+<footer class="footer">
+  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+  <div style="margin-top:10px">
+    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
+    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
+    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var icons={
+    download:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6v24"/><path d="M16 22l8 8 8-8"/><rect x="8" y="36" width="32" height="6" rx="2"/></svg>',
+    monitor:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="8" width="36" height="24" rx="3"/><path d="M16 40h16M24 32v8"/></svg>',
+    smartphone:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="14" y="4" width="20" height="40" rx="4"/><circle cx="24" cy="38" r="2"/></svg>',
+    link:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 20a8 8 0 0 1 12.24.76l4 4a8 8 0 0 1-11.32 11.32l-2.83-2.83"/><path d="M28 28a8 8 0 0 1-12.24-.76l-4-4A8 8 0 0 1 23.08 11.92l2.83 2.83"/></svg>',
+    compare:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="32" rx="2"/><rect x="28" y="16" width="12" height="24" rx="2"/><path d="M24 24h4"/></svg>',
+    gamepad:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="14" width="40" height="20" rx="4"/><circle cx="16" cy="24" r="4"/><circle cx="32" cy="24" r="4"/></svg>',
+    power:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4v18"/><path d="M32 10a18 18 0 1 1-16 0"/></svg>',
+    file:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M28 4H12a4 4 0 0 0-4 4v32a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V16z"/><path d="M28 4v12h12"/><path d="M18 28h12M18 34h8"/></svg>',
+    wrench:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M30 10a10 10 0 0 1 4 14l-16 16-6-6 16-16a10 10 0 0 1 2-8z"/></svg>',
+    laptop:'<svg class="article-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="32" height="24" rx="3"/><path d="M4 40h40"/><path d="M16 32v8M32 32v8"/></svg>'
+  };
+  var container=document.getElementById('articles-container');
+  if(!container)return;
+  fetch('articles.json').then(function(r){return r.json()}).then(function(data){
+    var html='';
+    data.forEach(function(a){
+      html+='<div class="article-item">';
+      html+=icons[a.icon]||icons.monitor;
+      html+='<div class="article-body">';
+      html+='<h3><a href="article-'+a.id+'.html">'+a.title+'</a></h3>';
+      html+='<div class="article-meta"><span>'+a.date+'</span><span>'+a.category+'</span></div>';
+      html+='<div class="article-excerpt">'+a.desc+'</div>';
+      html+='</div></div>';
+    });
+    container.innerHTML=html;
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UU远程控制 - 官方下载与使用教程</title>
+    <link>https://www.uuyckz.com.cn</link>
+    <description>网易UU远程控制软件官方信息站，提供最新下载、安装教程、使用技巧与功能评测，真4K/144帧/超低延迟免费远程控制</description>
+    <language>zh-CN</language>
+    <atom:link href="https://www.uuyckz.com.cn/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Sun, 15 Jun 2025 08:00:00 +0800</lastBuildDate>
+    <item>
+      <title>UU远程控制下载安装全流程详解（Windows/Mac/手机）</title>
+      <link>https://www.uuyckz.com.cn/article-1.html</link>
+      <description>详细讲解UU远程控制在Windows、macOS、iOS和Android平台上的下载与安装步骤，帮助新手快速完成配置</description>
+      <pubDate>Sun, 15 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-1.html</guid>
+    </item>
+    <item>
+      <title>Windows版UU远程使用指南：从入门到精通</title>
+      <link>https://www.uuyckz.com.cn/article-2.html</link>
+      <description>全面介绍Windows版UU远程控制的使用方法，包括连接、画质设置、快捷键等进阶技巧</description>
+      <pubDate>Sat, 14 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-2.html</guid>
+    </item>
+    <item>
+      <title>手机远程控制电脑：iOS和Android操作详解</title>
+      <link>https://www.uuyckz.com.cn/article-3.html</link>
+      <description>手把手教你用iPhone或安卓手机远程控制电脑，包含触控手势、虚拟键盘等移动端专属功能</description>
+      <pubDate>Fri, 13 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-3.html</guid>
+    </item>
+    <item>
+      <title>UU远程订阅链接与设备ID配置教程</title>
+      <link>https://www.uuyckz.com.cn/article-4.html</link>
+      <description>详细说明UU远程的订阅链接生成、设备ID查看与配对方法，轻松实现多设备远程管理</description>
+      <pubDate>Thu, 12 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-4.html</guid>
+    </item>
+    <item>
+      <title>UU远程控制与ToDesk哪个好？功能对比评测</title>
+      <link>https://www.uuyckz.com.cn/article-5.html</link>
+      <description>从画质、延迟、功能、安全性等维度全面对比UU远程与ToDesk，帮你选择最适合的远程工具</description>
+      <pubDate>Wed, 11 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-5.html</guid>
+    </item>
+    <item>
+      <title>UU远程游戏模式设置：键鼠映射与手柄配置</title>
+      <link>https://www.uuyckz.com.cn/article-6.html</link>
+      <description>详解UU远程游戏模式的键鼠映射、手柄连接、云键盘方案等设置，打造极致远程游戏体验</description>
+      <pubDate>Tue, 10 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-6.html</guid>
+    </item>
+    <item>
+      <title>远程开机设置教程：BIOS唤醒与网卡配置</title>
+      <link>https://www.uuyckz.com.cn/article-7.html</link>
+      <description>从BIOS设置到网卡唤醒，完整讲解如何配置远程开机功能，实现真正的无人值守远程控制</description>
+      <pubDate>Mon, 09 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-7.html</guid>
+    </item>
+    <item>
+      <title>UU远程文件传输使用技巧：跨设备高速互传</title>
+      <link>https://www.uuyckz.com.cn/article-8.html</link>
+      <description>介绍UU远程文件传输功能的使用方法和提速技巧，支持不限大小跨设备高速互传文件</description>
+      <pubDate>Sun, 08 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-8.html</guid>
+    </item>
+    <item>
+      <title>UU远程常见错误代码排查与解决方案</title>
+      <link>https://www.uuyckz.com.cn/article-9.html</link>
+      <description>汇总UU远程控制常见错误代码的含义及解决方法，快速排除连接失败、黑屏、延迟高等问题</description>
+      <pubDate>Sat, 07 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-9.html</guid>
+    </item>
+    <item>
+      <title>Mac版UU远程控制深度体验与设置优化</title>
+      <link>https://www.uuyckz.com.cn/article-10.html</link>
+      <description>深度体验macOS版UU远程控制，分享Retina画质适配、触控板手势、多桌面切换等Mac专属优化技巧</description>
+      <pubDate>Fri, 06 Jun 2025 08:00:00 +0800</pubDate>
+      <guid>https://www.uuyckz.com.cn/article-10.html</guid>
+    </item>
+  </channel>
+</rss>

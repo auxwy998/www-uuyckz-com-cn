@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>UU远程订阅链接与设备ID配置教程 - UU远程控制</title>
+<meta name="description" content="详细说明UU远程的订阅链接生成、设备ID查看与配对方法，轻松实现多设备远程管理">
+<meta name="keywords" content="UU远程控制,配置教程,远程控制教程">
+<link rel="canonical" href="https://www.uuyckz.com.cn/article-4.html">
+<link rel="alternate" hreflang="zh-CN" href="https://www.uuyckz.com.cn/article-4.html">
+<meta property="og:title" content="UU远程订阅链接与设备ID配置教程 - UU远程控制">
+<meta property="og:description" content="详细说明UU远程的订阅链接生成、设备ID查看与配对方法，轻松实现多设备远程管理">
+<meta property="og:url" content="https://www.uuyckz.com.cn/article-4.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="UU远程控制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UU远程订阅链接与设备ID配置教程 - UU远程控制">
+<meta name="twitter:description" content="详细说明UU远程的订阅链接生成、设备ID查看与配对方法，轻松实现多设备远程管理">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%231a0a10' width='32' height='32' rx='6'/><path d='M16 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z' fill='%23f59e0b'/><path d='M8 22l3 4h10l3-4' stroke='%23f59e0b' stroke-width='1.5' fill='none'/></svg>">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Article",
+      "headline":"UU远程订阅链接与设备ID配置教程",
+      "description":"详细说明UU远程的订阅链接生成、设备ID查看与配对方法，轻松实现多设备远程管理",
+      "datePublished":"2025-06-12",
+      "dateModified":"2025-06-12",
+      "author":{"@type":"Organization","name":"广州网易计算机系统有限公司"},
+      "publisher":{"@type":"Organization","name":"UU远程控制"},
+      "mainEntityOfPage":"https://www.uuyckz.com.cn/article-4.html"
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"首页","item":"https://www.uuyckz.com.cn/"},
+        {"@type":"ListItem","position":2,"name":"教程","item":"https://www.uuyckz.com.cn/articles.html"},
+        {"@type":"ListItem","position":3,"name":"UU远程订阅链接与设备ID配置教程","item":"https://www.uuyckz.com.cn/article-4.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a0a10;color:#f8f0f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.7}
+img{max-width:100%;height:auto;object-fit:cover}
+a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,10,16,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,158,11,0.1);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:8px;color:#f59e0b;font-weight:700;font-size:1.15rem}
+.nav-logo svg{width:28px;height:28px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:#aa8888;font-size:0.92rem;transition:color 0.2s}
+.nav-links a:hover{color:#f59e0b}
+.mobile-toggle{display:none;background:none;border:none;color:#f59e0b;font-size:1.5rem;cursor:pointer}
+.breadcrumb{padding:80px 24px 16px;max-width:800px;margin:0 auto}
+.breadcrumb a{color:#aa8888;font-size:0.88rem;transition:color 0.2s}
+.breadcrumb a:hover{color:#f59e0b}
+.breadcrumb span{color:#aa8888;font-size:0.88rem;margin:0 8px}
+.breadcrumb .current{color:#f59e0b;font-size:0.88rem}
+.article-header{max-width:800px;margin:0 auto;padding:0 24px 32px}
+.article-header h1{font-size:1.8rem;font-weight:800;line-height:1.4;margin-bottom:12px;color:#f8f0f0}
+.article-meta{color:#aa8888;font-size:0.88rem;display:flex;gap:20px;flex-wrap:wrap}
+.article-content{max-width:800px;margin:0 auto;padding:0 24px 48px}
+.article-content h2{font-size:1.3rem;color:#f59e0b;margin:36px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(245,158,11,0.2)}
+.article-content p{color:#f8f0f0;margin-bottom:16px;line-height:1.9;font-size:0.98rem}
+.article-content strong{color:#f59e0b}
+.cta-box{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(217,119,6,0.08));border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:28px;text-align:center;margin:48px 0}
+.cta-box h3{color:#f59e0b;font-size:1.15rem;margin-bottom:10px}
+.cta-box p{color:#aa8888;font-size:0.92rem;margin-bottom:16px}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#f59e0b,#d97706);color:#1a0a10;padding:12px 32px;border-radius:8px;font-weight:700;font-size:0.95rem;transition:box-shadow 0.2s}
+.cta-btn:hover{box-shadow:0 4px 20px rgba(245,158,11,0.4)}
+.related{max-width:800px;margin:0 auto;padding:0 24px 64px}
+.related h3{font-size:1.2rem;font-weight:700;margin-bottom:20px;color:#f8f0f0}
+.related-item{display:flex;align-items:flex-start;gap:14px;padding:16px;background:#2a1520;border:1px solid rgba(245,158,11,0.1);border-radius:10px;margin-bottom:12px;transition:border-color 0.2s}
+.related-item:hover{border-color:rgba(245,158,11,0.25)}
+.related-icon{width:28px;height:28px;color:#f59e0b;flex-shrink:0;margin-top:2px}
+.related-item a{color:#f8f0f0;font-weight:600;font-size:0.95rem;transition:color 0.2s}
+.related-item a:hover{color:#f59e0b}
+.related-meta{color:#aa8888;font-size:0.8rem;margin-top:4px}
+.footer{background:#2a1520;border-top:1px solid rgba(245,158,11,0.1);padding:32px 24px;text-align:center}
+.footer p{color:#aa8888;font-size:0.82rem}
+.footer a{color:#aa8888;margin:0 12px;font-size:0.82rem;transition:color 0.2s}
+.footer a:hover{color:#f59e0b}
+@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.1rem}}
+@media(max-width:480px){.article-header h1{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="https://www.uuyckz.com.cn/" class="nav-logo">
+    <svg viewBox="0 0 32 32"><rect fill="#1a0a10" width="32" height="32" rx="6"/><path d="M16 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z" fill="#f59e0b"/><path d="M8 22l3 4h10l3-4" stroke="#f59e0b" stroke-width="1.5" fill="none"/></svg>
+    UU远程控制
+  </a>
+  <div class="nav-links">
+    <a href="https://www.uuyckz.com.cn/">首页</a>
+    <a href="https://www.uuyckz.com.cn/download.html">下载</a>
+    <a href="https://www.uuyckz.com.cn/articles.html">教程</a>
+  </div>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="菜单">&#9776;</button>
+</nav>
+
+<div class="breadcrumb">
+  <a href="https://www.uuyckz.com.cn/">首页</a>
+  <span>/</span>
+  <a href="https://www.uuyckz.com.cn/articles.html">教程</a>
+  <span>/</span>
+  <span class="current">UU远程订阅链接与设备ID配置教程...</span>
+</div>
+
+<div class="article-header">
+  <h1>UU远程订阅链接与设备ID配置教程</h1>
+  <div class="article-meta">
+    <span>2025-06-12</span>
+    <span>配置教程</span>
+  </div>
+</div>
+
+<div class="article-content">
+<p>UU远程控制的订阅链接和设备ID是实现多设备远程管理的核心机制。正确配置订阅链接和设备ID，可以让您高效管理多台远程设备，无需每次手动输入连接信息，大幅提升远程管理效率。本文将详细讲解订阅链接的生成与使用、设备ID的查看与配对，以及多设备管理的实用技巧。</p>
+
+<h2>一、什么是设备ID</h2>
+<p>每台安装了UU远程控制的设备都会被分配一个唯一的设备ID，类似于设备的"门牌号"。设备ID由数字组成，通常显示在软件主界面的显眼位置。当您需要从其他设备连接到本设备时，只需在控制端输入这个设备ID即可发起连接请求。</p>
+<p>需要注意的是，设备ID与登录账号绑定。如果您更换了登录账号，设备ID可能会发生变化。建议将常用的设备ID记录保存，方便日后快速连接。同时，为每台设备设置备注名称（如"办公室电脑""家里台式机"等）可以帮助您在设备列表中快速识别目标设备。</p>
+
+<h2>二、如何查看设备ID</h2>
+<p>在Windows和macOS端，打开UU远程控制软件，设备ID通常显示在主界面的顶部区域或"我的设备"页面中，格式为一串数字。在iOS和Android端，打开应用后点击"我的"标签页，即可看到当前设备的ID信息。</p>
+<p>如果您管理多台设备，可以在设备管理页面查看所有已绑定设备的ID和在线状态。在线设备显示绿色标识，离线设备显示灰色标识，方便一目了然地了解设备状态。</p>
+
+<h2>三、订阅链接的生成与使用</h2>
+<p>订阅链接是UU远程控制提供的一种高效设备管理方式。通过生成订阅链接，您可以一次性添加多台设备到控制端，无需逐个输入设备ID，特别适合需要管理大量设备的场景。</p>
+<p><strong>生成订阅链接</strong>：在被控端软件的"设置-订阅管理"中，点击"生成订阅链接"按钮。系统会生成一个包含设备信息的加密链接，您可以通过微信、邮件、QQ等方式将链接分享给需要连接此设备的人。链接具有时效性，过期后需要重新生成。</p>
+<p><strong>导入订阅链接</strong>：在控制端软件的"添加设备"页面，选择"通过订阅链接添加"选项，粘贴收到的订阅链接，点击确认即可自动添加被控端设备到您的设备列表中。整个过程只需几秒钟，非常高效。</p>
+
+<h2>四、多设备管理实用技巧</h2>
+<p>对于需要管理多台远程设备的用户，以下技巧可以显著提升管理效率：</p>
+<p>1. <strong>分组管理</strong>：将设备按用途或位置分组，如"工作设备""家庭设备""客户设备"等，方便快速查找和批量操作。2. <strong>收藏常用设备</strong>：将常用设备添加到收藏列表，一键发起连接，无需在设备列表中翻找。3. <strong>批量订阅</strong>：为多台被控端设备生成统一的订阅链接，控制端一次导入所有设备，节省大量配置时间。4. <strong>定期清理</strong>：定期检查设备列表，删除不再需要的设备，保持列表整洁。</p>
+
+<h2>五、iCloud同步功能</h2>
+<p>iOS版UU远程控制支持iCloud同步功能。开启后，您的设备列表和连接记录会自动同步到iCloud，在所有登录同一Apple ID的iOS设备上都能看到相同的设备列表。这意味着在iPhone上添加的设备，iPad上也能直接使用，无需重复配置。同时连接记录和自定义设置也会同步，实现跨设备的一致体验。</p>
+
+<h2>六、连接安全设置建议</h2>
+<p>为了保护远程连接的安全性，建议进行以下安全设置：为每台设备设置独立的连接密码，防止他人通过设备ID直接连接；开启"连接确认"功能，每次连接都需要被控端手动确认，防止未授权访问；定期检查订阅链接的有效性，及时删除不再需要的订阅；在公共网络环境下确保已开启DTLS+AES加密传输。</p>
+<p>通过合理配置订阅链接和设备ID，您可以轻松管理多台远程设备，让UU远程控制成为您高效远程办公的得力助手。</p>
+
+<div class="cta-box">
+  <h3>立即下载UU远程控制</h3>
+  <p>真4K蓝光画质/144帧/超低延迟/全免费，开始您的远程控制之旅</p>
+  <a href="https://www.uuyckz.com.cn/dl/" class="cta-btn">免费下载</a>
+</div>
+</div>
+
+<div class="related">
+  <h3>相关推荐</h3>
+<div class="related-item">
+  <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+  <div>
+    <a href="article-1.html">UU远程控制下载安装全流程详解（Windows/Mac/手机）</a>
+    <div class="related-meta">2025-06-15 / 下载安装</div>
+  </div>
+</div>
+<div class="related-item">
+  <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+  <div>
+    <a href="article-2.html">Windows版UU远程使用指南：从入门到精通</a>
+    <div class="related-meta">2025-06-14 / 使用教程</div>
+  </div>
+</div>
+<div class="related-item">
+  <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+  <div>
+    <a href="article-7.html">远程开机设置教程：BIOS唤醒与网卡配置</a>
+    <div class="related-meta">2025-06-09 / 配置教程</div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+  <div style="margin-top:10px">
+    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
+    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
+    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  </div>
+</footer>
+</body>
+</html>

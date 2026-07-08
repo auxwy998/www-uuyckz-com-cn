@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>远程开机设置教程：BIOS唤醒与网卡配置 - UU远程控制</title>
+<meta name="description" content="从BIOS设置到网卡唤醒，完整讲解如何配置远程开机功能，实现真正的无人值守远程控制">
+<meta name="keywords" content="UU远程控制,配置教程,远程控制教程">
+<link rel="canonical" href="https://www.uuyckz.com.cn/article-7.html">
+<link rel="alternate" hreflang="zh-CN" href="https://www.uuyckz.com.cn/article-7.html">
+<meta property="og:title" content="远程开机设置教程：BIOS唤醒与网卡配置 - UU远程控制">
+<meta property="og:description" content="从BIOS设置到网卡唤醒，完整讲解如何配置远程开机功能，实现真正的无人值守远程控制">
+<meta property="og:url" content="https://www.uuyckz.com.cn/article-7.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="UU远程控制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="远程开机设置教程：BIOS唤醒与网卡配置 - UU远程控制">
+<meta name="twitter:description" content="从BIOS设置到网卡唤醒，完整讲解如何配置远程开机功能，实现真正的无人值守远程控制">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%231a0a10' width='32' height='32' rx='6'/><path d='M16 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z' fill='%23f59e0b'/><path d='M8 22l3 4h10l3-4' stroke='%23f59e0b' stroke-width='1.5' fill='none'/></svg>">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Article",
+      "headline":"远程开机设置教程：BIOS唤醒与网卡配置",
+      "description":"从BIOS设置到网卡唤醒，完整讲解如何配置远程开机功能，实现真正的无人值守远程控制",
+      "datePublished":"2025-06-09",
+      "dateModified":"2025-06-09",
+      "author":{"@type":"Organization","name":"广州网易计算机系统有限公司"},
+      "publisher":{"@type":"Organization","name":"UU远程控制"},
+      "mainEntityOfPage":"https://www.uuyckz.com.cn/article-7.html"
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"首页","item":"https://www.uuyckz.com.cn/"},
+        {"@type":"ListItem","position":2,"name":"教程","item":"https://www.uuyckz.com.cn/articles.html"},
+        {"@type":"ListItem","position":3,"name":"远程开机设置教程：BIOS唤醒与网卡配置","item":"https://www.uuyckz.com.cn/article-7.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a0a10;color:#f8f0f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.7}
+img{max-width:100%;height:auto;object-fit:cover}
+a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,10,16,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,158,11,0.1);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:8px;color:#f59e0b;font-weight:700;font-size:1.15rem}
+.nav-logo svg{width:28px;height:28px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:#aa8888;font-size:0.92rem;transition:color 0.2s}
+.nav-links a:hover{color:#f59e0b}
+.mobile-toggle{display:none;background:none;border:none;color:#f59e0b;font-size:1.5rem;cursor:pointer}
+.breadcrumb{padding:80px 24px 16px;max-width:800px;margin:0 auto}
+.breadcrumb a{color:#aa8888;font-size:0.88rem;transition:color 0.2s}
+.breadcrumb a:hover{color:#f59e0b}
+.breadcrumb span{color:#aa8888;font-size:0.88rem;margin:0 8px}
+.breadcrumb .current{color:#f59e0b;font-size:0.88rem}
+.article-header{max-width:800px;margin:0 auto;padding:0 24px 32px}
+.article-header h1{font-size:1.8rem;font-weight:800;line-height:1.4;margin-bottom:12px;color:#f8f0f0}
+.article-meta{color:#aa8888;font-size:0.88rem;display:flex;gap:20px;flex-wrap:wrap}
+.article-content{max-width:800px;margin:0 auto;padding:0 24px 48px}
+.article-content h2{font-size:1.3rem;color:#f59e0b;margin:36px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(245,158,11,0.2)}
+.article-content p{color:#f8f0f0;margin-bottom:16px;line-height:1.9;font-size:0.98rem}
+.article-content strong{color:#f59e0b}
+.cta-box{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(217,119,6,0.08));border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:28px;text-align:center;margin:48px 0}
+.cta-box h3{color:#f59e0b;font-size:1.15rem;margin-bottom:10px}
+.cta-box p{color:#aa8888;font-size:0.92rem;margin-bottom:16px}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#f59e0b,#d97706);color:#1a0a10;padding:12px 32px;border-radius:8px;font-weight:700;font-size:0.95rem;transition:box-shadow 0.2s}
+.cta-btn:hover{box-shadow:0 4px 20px rgba(245,158,11,0.4)}
+.related{max-width:800px;margin:0 auto;padding:0 24px 64px}
+.related h3{font-size:1.2rem;font-weight:700;margin-bottom:20px;color:#f8f0f0}
+.related-item{display:flex;align-items:flex-start;gap:14px;padding:16px;background:#2a1520;border:1px solid rgba(245,158,11,0.1);border-radius:10px;margin-bottom:12px;transition:border-color 0.2s}
+.related-item:hover{border-color:rgba(245,158,11,0.25)}
+.related-icon{width:28px;height:28px;color:#f59e0b;flex-shrink:0;margin-top:2px}
+.related-item a{color:#f8f0f0;font-weight:600;font-size:0.95rem;transition:color 0.2s}
+.related-item a:hover{color:#f59e0b}
+.related-meta{color:#aa8888;font-size:0.8rem;margin-top:4px}
+.footer{background:#2a1520;border-top:1px solid rgba(245,158,11,0.1);padding:32px 24px;text-align:center}
+.footer p{color:#aa8888;font-size:0.82rem}
+.footer a{color:#aa8888;margin:0 12px;font-size:0.82rem;transition:color 0.2s}
+.footer a:hover{color:#f59e0b}
+@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.1rem}}
+@media(max-width:480px){.article-header h1{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="https://www.uuyckz.com.cn/" class="nav-logo">
+    <svg viewBox="0 0 32 32"><rect fill="#1a0a10" width="32" height="32" rx="6"/><path d="M16 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z" fill="#f59e0b"/><path d="M8 22l3 4h10l3-4" stroke="#f59e0b" stroke-width="1.5" fill="none"/></svg>
+    UU远程控制
+  </a>
+  <div class="nav-links">
+    <a href="https://www.uuyckz.com.cn/">首页</a>
+    <a href="https://www.uuyckz.com.cn/download.html">下载</a>
+    <a href="https://www.uuyckz.com.cn/articles.html">教程</a>
+  </div>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="菜单">&#9776;</button>
+</nav>
+
+<div class="breadcrumb">
+  <a href="https://www.uuyckz.com.cn/">首页</a>
+  <span>/</span>
+  <a href="https://www.uuyckz.com.cn/articles.html">教程</a>
+  <span>/</span>
+  <span class="current">远程开机设置教程：BIOS唤醒与网卡配置...</span>
+</div>
+
+<div class="article-header">
+  <h1>远程开机设置教程：BIOS唤醒与网卡配置</h1>
+  <div class="article-meta">
+    <span>2025-06-09</span>
+    <span>配置教程</span>
+  </div>
+</div>
+
+<div class="article-content">
+<p>远程开机是UU远程控制的一项重要功能，它允许您通过网络远程启动处于关机或休眠状态的电脑。配合远程控制功能，您可以实现真正的无人值守远程访问——即使被控端电脑处于关机状态，也能随时远程开机并控制操作。本文将从BIOS设置到网卡配置，完整讲解远程开机的配置过程。</p>
+
+<h2>一、远程开机的工作原理</h2>
+<p>远程开机基于网络唤醒（Wake on LAN，简称WoL）技术。当电脑处于关机但接通电源的状态时，网卡仍然保持低功耗监听状态，等待接收特定格式的网络唤醒数据包（Magic Packet）。当网卡收到这个特殊数据包时，会向主板发送开机信号，触发电脑正常启动。</p>
+<p>需要特别注意的是，远程开机要求电脑必须接通电源（不能拔掉电源线），且网卡和主板均支持WoL功能。笔记本电脑由于电源管理机制的限制，部分型号可能不支持远程开机功能，建议优先在台式机上使用。</p>
+
+<h2>二、BIOS设置详解</h2>
+<p>BIOS设置是远程开机配置的第一步，也是最关键的一步。不同品牌主板的BIOS界面可能不同，但基本设置项类似：</p>
+<p>1. <strong>进入BIOS</strong>：开机时按下Del键或F2键进入BIOS设置界面，具体按键取决于主板品牌，华硕通常为Del，微星为Del，技嘉为Del或F2。</p>
+<p>2. <strong>开启网络唤醒</strong>：在"Advanced"或"Power Management"菜单中找到"Wake on LAN"或"Power On By PCI-E/LAN"选项，将其设置为"Enabled"状态。部分主板可能将该选项放在"APM Configuration"子菜单中。</p>
+<p>3. <strong>关闭ErP节能</strong>：在电源管理中找到"ErP Ready"选项，设置为"Disable"。ErP是一项欧洲节能标准，开启后会在关机时完全切断网卡供电，导致网卡无法监听唤醒数据包，远程开机自然无法工作。</p>
+<p>4. <strong>保存退出</strong>：按F10保存设置并退出BIOS，电脑会自动重启。</p>
+
+<h2>三、Windows系统网卡配置</h2>
+<p>BIOS设置完成后，还需要在Windows系统中正确配置网卡属性：</p>
+<p>1. 右键"此电脑"选择"管理"，进入"设备管理器"界面。2. 展开"网络适配器"列表，找到有线网卡（远程开机通常需要有线网卡支持，无线网卡部分型号不支持WoL），右键选择"属性"。3. 切换到"电源管理"选项卡，勾选"允许此设备唤醒计算机"和"只允许幻数据包唤醒计算机"两个选项。4. 切换到"高级"选项卡，在属性列表中找到"唤醒功能"或"Wake on Magic Packet"，将值设置为"开启"。</p>
+<p>如果您的电脑使用的是Realtek或Intel网卡，高级选项中可能还有"关机时唤醒"选项，也需要设置为"开启"。</p>
+
+<h2>四、UU远程中的远程开机设置</h2>
+<p>完成BIOS和网卡配置后，在UU远程控制软件中进行最后的设置：</p>
+<p>1. 在被控端软件的"设置-远程开机"页面中，开启远程开机功能。2. 软件会自动检测网卡是否支持WoL功能，如果检测到支持则显示绿色标识，不支持则显示红色提示。3. 如果被控端通过路由器连接网络，可能需要在路由器管理界面中设置端口转发或ARP绑定，确保唤醒数据包能够正确送达被控端网卡。</p>
+
+<h2>五、使用远程开机的操作步骤</h2>
+<p>配置完成后，在控制端的设备列表中，关机状态的设备旁会显示"远程开机"按钮。点击后，UU远程会向被控端发送唤醒数据包。通常5-10秒后电脑即可开机，再等待系统启动完成（约30秒到1分钟）即可发起远程连接。</p>
+
+<h2>六、常见问题排查</h2>
+<p>如果远程开机不成功，请按以下步骤逐一排查：1. 确认电脑已接通电源，且关机后网卡指示灯仍然亮着；2. 重新检查BIOS中WoL和ErP设置是否正确；3. 确认Windows网卡属性中唤醒功能已启用；4. 检查路由器是否需要设置ARP绑定或端口转发；5. 部分主板需要在BIOS中同时开启PCIe唤醒支持。一旦配置成功，远程开机功能即可长期稳定使用。</p>
+
+<div class="cta-box">
+  <h3>立即下载UU远程控制</h3>
+  <p>真4K蓝光画质/144帧/超低延迟/全免费，开始您的远程控制之旅</p>
+  <a href="https://www.uuyckz.com.cn/dl/" class="cta-btn">免费下载</a>
+</div>
+</div>
+
+<div class="related">
+  <h3>相关推荐</h3>
+<div class="related-item">
+  <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+  <div>
+    <a href="article-4.html">UU远程订阅链接与设备ID配置教程</a>
+    <div class="related-meta">2025-06-12 / 配置教程</div>
+  </div>
+</div>
+<div class="related-item">
+  <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+  <div>
+    <a href="article-2.html">Windows版UU远程使用指南：从入门到精通</a>
+    <div class="related-meta">2025-06-14 / 使用教程</div>
+  </div>
+</div>
+<div class="related-item">
+  <svg class="related-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+  <div>
+    <a href="article-9.html">UU远程常见错误代码排查与解决方案</a>
+    <div class="related-meta">2025-06-07 / 故障排除</div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+  <div style="margin-top:10px">
+    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
+    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
+    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  </div>
+</footer>
+</body>
+</html>
