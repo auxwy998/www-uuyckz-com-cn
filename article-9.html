@@ -85,6 +85,9 @@ a{text-decoration:none;color:inherit}
 .footer a:hover{color:#f59e0b}
 @media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.1rem}}
 @media(max-width:480px){.article-header h1{font-size:1.2rem}}
+
+@media(max-width:768px){.footer>div>div{grid-template-columns:1fr 1fr!important;gap:20px!important}}
+@media(max-width:480px){.footer>div>div{grid-template-columns:1fr!important;gap:16px!important}}
 </style>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"3QV2euZYoqivMBCK",ck:"3QV2euZYoqivMBCK"})</script></head>
 <body>
@@ -121,36 +124,56 @@ a{text-decoration:none;color:inherit}
 <p>在使用UU远程控制的过程中，偶尔可能会遇到连接失败、画面黑屏、操作延迟高等问题。这些问题大多数可以通过简单的排查步骤快速解决。本文汇总了UU远程常见的错误代码和故障现象，提供详细的排查思路和解决方案，帮助您快速恢复正常使用。</p>
 
 <h2>一、连接失败类问题</h2>
-<p><strong>错误码1001：连接超时</strong></p>
-<p>原因分析：控制端无法在规定时间内与被控端建立网络连接。排查步骤：1. 检查两端设备的网络连接是否正常，尝试打开网页确认网络可用；2. 确认被控端UU远程控制软件是否正在运行且已登录账号；3. 尝试切换网络环境（如从WiFi切换到移动数据或反之）；4. 检查系统防火墙或安全软件是否阻止了UU远程的网络访问权限。</p>
-<p><strong>错误码1002：设备离线</strong></p>
-<p>原因分析：被控端设备处于离线状态或网络不可达。排查步骤：1. 确认被控端电脑是否开机且网络连接正常；2. 检查UU远程控制软件是否正常运行，有时软件可能因系统更新等原因自动退出；3. 如果被控端处于休眠或关机状态，尝试使用远程开机功能唤醒设备；4. 检查被控端是否切换了网络环境导致IP地址变化。</p>
-<p><strong>错误码1003：版本不兼容</strong></p>
-<p>原因分析：控制端和被控端的软件版本差异过大，协议不兼容。解决方案：将两端软件都更新到最新版本。UU远程支持自动更新检查，也可以手动从官网下载最新版安装。</p>
+<img src="/img/article-9-1.webp" alt="UU远程控制连接失败错误代码排查界面" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p><strong>错误码1001：连接超时</strong></p>
+<p>原因分析：控制端无法在规定时间内与被控端建立网络连接。</p>
+<p>排查步骤：1. 检查两端设备的网络连接是否正常，尝试打开网页确认网络可用；2. 确认被控端UU远程控制软件是否正在运行且已登录账号；3. 尝试切换网络环境（如从WiFi切换到移动数据或反之）；4. 检查系统防火墙或安全软件是否阻止了UU远程的网络访问权限，需要在防火墙中将UU远程添加为允许应用。</p>
+<p><strong>错误码1002：设备离线</strong></p>
+<p>原因分析：被控端设备处于离线状态或网络不可达。</p>
+<p>排查步骤：1. 确认被控端电脑是否开机且网络连接正常；2. 检查UU远程控制软件是否正常运行，有时软件可能因系统更新等原因自动退出；3. 如果被控端处于休眠或关机状态，尝试使用远程开机功能唤醒设备；4. 检查被控端是否切换了网络环境导致IP地址变化，重新登录账号通常会自动更新网络信息。</p>
+<p><strong>错误码1003：版本不兼容</strong></p>
+<p>原因分析：控制端和被控端的软件版本差异过大，协议不兼容。</p>
+<p>解决方案：将两端软件都更新到最新版本。UU远程支持自动更新检查，也可以手动从官网下载最新版安装。版本更新通常是免费的，建议开启自动更新确保始终使用最新版本。</p>
+<p><strong>错误码1004：认证失败</strong></p>
+<p>原因分析：连接密码错误或连接权限被拒绝。</p>
+<p>排查步骤：1. 确认输入的连接密码是否正确，注意区分大小写；2. 检查被控端是否设置了连接白名单，白名单外的设备无法连接；3. 如果通过设备ID连接，确认被控端未开启"禁止ID连接"选项。</p>
 <h2>二、画面显示类问题</h2>
 <p><strong>黑屏无画面</strong></p>
-<p>可能原因及解决方案：1. 被控端显示器未连接或处于关闭状态——确保被控端有活跃的显示输出，如果被控端没有连接显示器，可以使用虚拟显示器插件解决；2. 显卡驱动异常——更新被控端显卡驱动到最新版本，过旧的驱动可能不兼容画面捕获功能；3. 系统权限未授予——macOS用户需在系统设置中授予屏幕录制权限，否则无法捕获画面。</p>
+<p>可能原因及解决方案：1. 被控端显示器未连接或处于关闭状态——确保被控端有活跃的显示输出，如果被控端没有连接显示器，可以使用虚拟显示器插件解决，推荐使用HDMI虚拟显示器头插入显卡接口模拟显示输出；2. 显卡驱动异常——更新被控端显卡驱动到最新版本，过旧的驱动可能不兼容画面捕获功能，NVIDIA显卡建议使用Game Ready驱动；3. 系统权限未授予——macOS用户需在系统设置中授予屏幕录制权限，否则无法捕获画面；4. 被控端屏幕保护程序或锁屏界面——先发送按键或鼠标操作唤醒屏幕。</p>
 <p><strong>画面模糊或文字发虚</strong></p>
-<p>可能原因及解决方案：1. 未开启4:4:4色度采样——在画质设置中启用4:4:4色度采样模式；2. 分辨率不匹配——调整被控端分辨率与控制端显示器匹配；3. 画质模式设置过低——根据网络条件选择更高的画质档位；4. 缩放比例异常——检查被控端的系统缩放设置是否为推荐的100%。</p>
+<p>可能原因及解决方案：1. 未开启4:4:4色度采样——在画质设置中启用4:4:4色度采样模式；2. 分辨率不匹配——调整被控端分辨率与控制端显示器匹配；3. 画质模式设置过低——根据网络条件选择更高的画质档位；4. 缩放比例异常——检查被控端的系统缩放设置是否为推荐的100%，非100%的缩放比例可能导致画面采样失真。</p>
 <p><strong>画面卡顿或掉帧</strong></p>
-<p>可能原因及解决方案：1. 网络带宽不足——降低画质或帧率设置，释放网络带宽；2. 被控端CPU或GPU负载过高——关闭不必要的后台程序，释放系统资源；3. 网络波动不稳定——尝试开启专网加速模式，选择更稳定的网络路径。</p>
-
+<p>可能原因及解决方案：1. 网络带宽不足——降低画质或帧率设置，释放网络带宽；2. 被控端CPU或GPU负载过高——关闭不必要的后台程序，释放系统资源，可以通过被控端任务管理器查看资源占用情况；3. 网络波动不稳定——尝试开启专网加速模式，选择更稳定的网络路径；4. 控制端解码能力不足——降低分辨率或帧率，减轻控制端解码压力。</p>
 <h2>三、输入操作类问题</h2>
-<p><strong>鼠标操作延迟明显</strong></p>
-<p>排查方案：1. 开启低延迟优先模式，牺牲部分画质换取更低操作延迟；2. 降低画质设置，减少编码处理时间；3. 如果使用移动数据，切换到WiFi网络通常可以显著改善延迟。</p>
-<p><strong>键盘输入丢失或重复触发</strong></p>
-<p>排查方案：1. 网络抖动导致——检查网络连接稳定性，尝试重启路由器；2. 输入缓冲设置不当——在设置中调整输入缓冲时间参数；3. 切换到有线网络连接以获得更稳定的传输。</p>
-<p><strong>手柄操作无响应</strong></p>
-<p>排查方案：1. 手柄未正确配对——检查蓝牙连接状态，重新配对手柄；2. 未开启手柄模式——在UU远程设置中切换到手柄操控模式；3. 手柄电量不足——给手柄充电或更换电池。</p>
+<img src="/img/article-9-2.webp" alt="UU远程控制输入操作问题排查示意图" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p><strong>鼠标操作延迟明显</strong></p>
+<p>排查方案：1. 开启低延迟优先模式，牺牲部分画质换取更低操作延迟，在远程办公场景下这个取舍通常是值得的；2. 降低画质设置，减少编码处理时间，编码耗时是输入延迟的主要来源之一；3. 如果使用移动数据，切换到WiFi网络通常可以显著改善延迟，WiFi的网络稳定性通常优于移动数据；4. 检查是否有其他程序占用网络带宽，如正在下载更新或同步云盘。</p>
+<p><strong>键盘输入丢失或重复触发</strong></p>
+<p>排查方案：1. 网络抖动导致——检查网络连接稳定性，尝试重启路由器，更换DNS服务器也可能改善网络质量；2. 输入缓冲设置不当——在设置中调整输入缓冲时间参数，增大缓冲时间可以减少输入丢失但会增加感知延迟；3. 切换到有线网络连接以获得更稳定的传输，有线网络的丢包率和抖动都远低于无线网络。</p>
+<p><strong>手柄操作无响应</strong></p>
+<p>排查方案：1. 手柄未正确配对——检查蓝牙连接状态，重新配对手柄，确保手柄在UU远程运行时已经连接；2. 未开启手柄模式——在UU远程设置中切换到手柄操控模式，默认可能是键鼠模式；3. 手柄电量不足——给手柄充电或更换电池，低电量时手柄可能出现连接不稳定或按键无响应；4. 手柄兼容性问题——确认手柄型号是否在UU远程的兼容列表中，极少数小众品牌手柄可能需要自定义映射。</p>
+<p><strong>触控板手势无法使用</strong></p>
+<p>排查方案：1. 确认使用的是Mac版UU远程且已授予辅助功能权限；2. 检查触控板手势映射设置是否正确；3. 重启UU远程软件后重试。</p>
 <h2>四、文件传输类问题</h2>
 <p><strong>传输速度异常缓慢</strong></p>
-<p>排查方案：1. 网络带宽不足——检查并优化网络环境，关闭其他占用带宽的应用；2. 未建立直连——确保两端在同一局域网或开启专网加速模式；3. 远程桌面占用带宽——降低画质设置释放带宽给文件传输。</p>
-
+<p>排查方案：1. 网络带宽不足——检查并优化网络环境，关闭其他占用带宽的应用，如在线视频、云盘同步等；2. 未建立直连——确保两端在同一局域网或开启专网加速模式，直连模式的速度远超中转模式；3. 远程桌面占用带宽——降低画质设置释放带宽给文件传输，4K蓝光模式会占用大量带宽；4. 小文件过多——将大量小文件压缩打包后再传输，减少网络握手开销。</p>
+<p><strong>传输中断无法恢复</strong></p>
+<p>排查方案：1. 确认UU远程版本是否为最新版，旧版本的断点续传功能可能存在已知问题；2. 检查被控端磁盘空间是否充足，磁盘空间不足可能导致写入失败；3. 检查文件是否被其他程序锁定占用，被锁定的文件可能无法覆盖写入。</p>
+<p><strong>剪贴板同步不生效</strong></p>
+<p>排查方案：1. 确认剪贴板同步功能已在设置中开启；2. macOS用户需确认已授予辅助功能权限；3. 部分安全软件会监控剪贴板访问，检查是否被拦截；4. 尝试重启UU远程软件恢复剪贴板同步功能。</p>
 <h2>五、通用排查方法</h2>
-<p>遇到问题时，可以按以下步骤进行通用排查：1. 重启UU远程控制软件，很多临时性问题可以通过重启解决；2. 检查并更新到最新版本，新版本通常修复了已知问题；3. 检查网络连接是否正常；4. 检查系统防火墙和安全软件设置；5. 如果以上方法均无效，可以尝试卸载后重新安装。大部分常见问题通过以上方法都能得到有效解决。</p>
+<img src="/img/article-9-3.webp" alt="UU远程控制通用故障排查流程界面" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>遇到问题时，可以按以下步骤进行通用排查：</p>
+<p>1. <strong>重启UU远程控制软件</strong>：很多临时性问题（如内存泄漏、连接状态异常）可以通过重启解决。建议先退出软件再重新打开，而不是直接结束进程，确保正常的资源释放和状态保存。</p>
+<p>2. <strong>检查并更新到最新版本</strong>：新版本通常修复了已知问题和安全漏洞，版本过旧可能导致各种兼容性问题。可以在"设置-关于"中查看当前版本号，与官网最新版本对比。</p>
+<p>3. <strong>检查网络连接是否正常</strong>：确保两端设备都能正常访问互联网。可以尝试ping uu.163.com测试网络连通性。如果ping延迟异常高或丢包严重，说明网络环境存在问题。</p>
+<p>4. <strong>检查系统防火墙和安全软件设置</strong>：Windows Defender、360安全卫士等安全软件可能阻止UU远程的网络访问或屏幕捕获功能，需要将UU远程加入白名单。</p>
+<p>5. <strong>尝试卸载后重新安装</strong>：如果以上方法均无效，可以尝试完全卸载UU远程后重新下载安装最新版本。卸载前建议备份设备列表和自定义设置，重装后可以快速恢复。</p>
+<p>6. <strong>联系官方技术支持</strong>：如果所有方法都无法解决问题，可以通过UU远程官网的客服渠道提交问题反馈，附上错误码、系统版本、网络环境等信息，技术支持团队会尽快协助解决。</p>
+<p>大部分常见问题通过以上方法都能得到有效解决。建议将本文添加到书签，遇到问题时可以快速查阅对应的解决方案。</p>
 <div class="cta-box">
   <h3>立即下载UU远程控制</h3>
   <p>真4K蓝光画质/144帧/超低延迟/全免费，开始您的远程控制之旅</p>
@@ -185,11 +208,56 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <footer class="footer">
-  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
-  <div style="margin-top:10px">
-    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
-    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
-    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  <div style="max-width:1100px;margin:0 auto;padding:40px 24px 20px">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:32px;text-align:left">
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">产品</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">官方下载</a>
+          <a href="https://www.uuyckz.com.cn/#features" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">功能介绍</a>
+          <a href="https://www.uuyckz.com.cn/articles.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">使用教程</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">常见问题</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">下载</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Windows版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">macOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">iOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Android版下载</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">教程</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/article-1.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">下载安装指南</a>
+          <a href="https://www.uuyckz.com.cn/article-3.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">手机远程教程</a>
+          <a href="https://www.uuyckz.com.cn/article-8.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">文件传输技巧</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">错误代码排查</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">关于</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">软件介绍</a>
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">版本更新</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">安全保障</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">技术支持</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">法律</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/privacy-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">隐私政策</a>
+          <a href="https://www.uuyckz.com.cn/terms-of-service.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">用户协议</a>
+          <a href="https://www.uuyckz.com.cn/cookie-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Cookie政策</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(245,158,11,0.1);text-align:center">
+      <p style="color:#aa8888;font-size:0.82rem">&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+    </div>
   </div>
 </footer>
 </body>

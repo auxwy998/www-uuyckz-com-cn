@@ -85,6 +85,9 @@ a{text-decoration:none;color:inherit}
 .footer a:hover{color:#f59e0b}
 @media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.1rem}}
 @media(max-width:480px){.article-header h1{font-size:1.2rem}}
+
+@media(max-width:768px){.footer>div>div{grid-template-columns:1fr 1fr!important;gap:20px!important}}
+@media(max-width:480px){.footer>div>div{grid-template-columns:1fr!important;gap:16px!important}}
 </style>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"3QV2euZYoqivMBCK",ck:"3QV2euZYoqivMBCK"})</script></head>
 <body>
@@ -121,34 +124,47 @@ a{text-decoration:none;color:inherit}
 <p>Windows版UU远程控制是功能最完整、体验最丰富的版本。本文将从基础连接到高级设置，全面介绍Windows版的使用方法，帮助您充分发挥UU远程控制的强大功能，无论是远程办公、远程游戏还是远程协助都能游刃有余。</p>
 
 <h2>一、建立远程连接的两种方式</h2>
-<p>UU远程控制提供两种连接方式，分别适用于不同的使用场景：</p>
-<p><strong>账号登录连接</strong>：在控制端和被控端登录同一个网易账号，被控端设备会自动出现在控制端的设备列表中，点击设备名称即可发起连接。这种方式最为简单便捷，适合管理自己的多台设备，无需记住设备ID。</p>
-<p><strong>设备ID连接</strong>：在被控端软件主界面可以看到设备ID和连接密码。在控制端输入被控端的设备ID，经被控端确认后即可建立连接。这种方式适合帮助他人远程排障的场景，无需登录同一账号，只需要对方提供设备ID即可。</p>
+<img src="/img/article-2-1.webp" alt="UU远程控制Windows版连接方式选择界面" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>UU远程控制提供两种连接方式，分别适用于不同的使用场景：</p>
+<p><strong>账号登录连接</strong>：在控制端和被控端登录同一个网易账号，被控端设备会自动出现在控制端的设备列表中，点击设备名称即可发起连接。这种方式最为简单便捷，适合管理自己的多台设备，无需记住设备ID。连接建立过程中，UU远程会自动检测两端是否在同一局域网，如果是则建立点对点直连通道，延迟最低、速度最快；如果不在同一局域网，则通过专网节点中转，确保连接稳定可靠。</p>
+<p><strong>设备ID连接</strong>：在被控端软件主界面可以看到设备ID和连接密码。在控制端输入被控端的设备ID，经被控端确认后即可建立连接。这种方式适合帮助他人远程排障的场景，无需登录同一账号，只需要对方提供设备ID即可。为了安全起见，建议在设备ID连接时始终要求被控端确认，避免未授权的连接请求。</p>
+<p><strong>连接技巧</strong>：首次连接建议先在同一WiFi环境下测试，确认功能正常后再尝试跨网络连接。如果连接失败，可以先检查两端软件版本是否一致，版本差异过大可能导致协议不兼容。同时确保防火墙没有阻止UU远程的网络访问。</p>
 <h2>二、画质设置与优化</h2>
 <p>UU远程控制提供多种画质模式，您可以根据网络环境和使用场景灵活选择：</p>
-<p><strong>4K蓝光模式</strong>：最高支持3840x2160分辨率，配合4:4:4色度采样技术，文字显示清晰锐利，色彩还原精准，最适合远程办公和设计工作。需要较高的网络带宽支持，建议在局域网或50Mbps以上广域网环境下使用。</p>
-<p><strong>真彩模式</strong>：在4K画质基础上进一步优化色彩还原精度，特别适合对色彩准确性有严格要求的设计师和摄影师使用。</p>
-<p><strong>均衡模式</strong>：在画质和流畅度之间取得平衡，适合大多数日常使用场景，是默认推荐的画质档位。</p>
-<p><strong>流畅模式</strong>：优先保证操作流畅性，适当降低画质要求，适合网络环境较差或对延迟敏感的游戏场景。</p>
-
+<p><strong>4K蓝光模式</strong>：最高支持3840x2160分辨率，配合4:4:4色度采样技术，文字显示清晰锐利，色彩还原精准，最适合远程办公和设计工作。需要较高的网络带宽支持，建议在局域网或50Mbps以上广域网环境下使用。4K蓝光模式下文字边缘不会有任何色彩溢出，长时间阅读文档也不会感到眼睛疲劳。</p>
+<p><strong>真彩模式</strong>：在4K画质基础上进一步优化色彩还原精度，特别适合对色彩准确性有严格要求的设计师和摄影师使用。真彩模式支持更宽的色域范围，能够准确呈现sRGB和Display P3色彩空间中的颜色细节。</p>
+<p><strong>均衡模式</strong>：在画质和流畅度之间取得平衡，适合大多数日常使用场景，是默认推荐的画质档位。均衡模式在20Mbps以上的网络环境下即可流畅运行，画质表现足以满足文档编辑、网页浏览等办公需求。</p>
+<p><strong>流畅模式</strong>：优先保证操作流畅性，适当降低画质要求，适合网络环境较差或对延迟敏感的游戏场景。流畅模式在10Mbps带宽下即可稳定运行，画面清晰度虽有下降但不影响正常使用。</p>
+<p><strong>画质切换技巧</strong>：远程连接状态下可以随时切换画质模式，无需断开重连。如果当前画面出现卡顿，可以快速切换到低一档的画质模式来恢复流畅。UU远程还支持自适应画质功能，会根据实时网络状况自动调整编码参数，在画质和流畅度之间找到最佳平衡点。</p>
 <h2>三、常用快捷键一览</h2>
-<p>Windows版UU远程控制内置了丰富的快捷键组合，熟练使用可以大幅提升远程操作效率：</p>
-<p>Ctrl+Alt+Del：发送Ctrl+Alt+Delete组合键到被控端，用于打开任务管理器等系统操作。Ctrl+Shift+F：全屏与窗口模式切换，全屏模式下可以获得更沉浸的远程操作体验。Ctrl+Shift+M：打开或关闭鼠标指针显示。Ctrl+Shift+S：截图保存当前远程画面，截图自动保存到控制端的指定目录。</p>
+<img src="/img/article-2-2.webp" alt="UU远程控制Windows版快捷键操作示意图" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>Windows版UU远程控制内置了丰富的快捷键组合，熟练使用可以大幅提升远程操作效率：</p>
+<p><strong>窗口与画面控制</strong>：Ctrl+Shift+F：全屏与窗口模式切换，全屏模式下可以获得更沉浸的远程操作体验。Ctrl+Shift+M：打开或关闭鼠标指针显示，在触控操作时可以隐藏指针减少视觉干扰。Ctrl+Shift+S：截图保存当前远程画面，截图自动保存到控制端的指定目录，方便记录和分享。</p>
+<p><strong>系统操作快捷键</strong>：Ctrl+Alt+Del：发送Ctrl+Alt+Delete组合键到被控端，用于打开任务管理器等系统操作，这是远程控制中非常常用的功能。Ctrl+Shift+Esc：直接打开被控端任务管理器，比Ctrl+Alt+Del更快一步。Alt+Tab：在被控端切换活动窗口，与本地操作一致。</p>
+<p><strong>传输与工具快捷键</strong>：Ctrl+Shift+T：快速打开文件传输窗口，无需鼠标点击工具栏。Ctrl+Shift+L：锁定被控端屏幕，暂停远程会话。Ctrl+Shift+P：切换防窥模式开关。</p>
+<p>以上快捷键均可在设置中自定义修改，您可以根据个人操作习惯重新映射。建议将最常用的快捷键记忆下来，熟练后可以完全脱离鼠标工具栏操作，效率大幅提升。</p>
 <h2>四、多屏控制功能</h2>
 <p>如果被控端连接了多个显示器，UU远程控制支持多屏切换和同时查看两种模式。在工具栏中点击"多屏"按钮，可以查看所有显示器的缩略图，点击缩略图即可切换到对应的屏幕。也可以选择"多屏同时显示"模式，在一个窗口中并排查看所有显示器的内容，适合需要同时监控多个屏幕的工作场景。</p>
-
+<p>多屏控制还支持以下进阶功能：拖拽窗口跨屏幕移动——在多屏同时显示模式下，您可以将远程窗口中的内容从一个屏幕拖拽到另一个屏幕，与本地多屏操作体验完全一致；独立画质设置——可以为每个显示器单独设置画质参数，例如主屏幕使用4K蓝光模式保证办公清晰度，副屏幕使用均衡模式节省带宽；快捷屏幕切换——使用Ctrl+Shift+左/右方向键可以快速切换到上一个或下一个显示器。</p>
+<p>对于使用超宽带鱼屏或21:9宽屏显示器的用户，UU远程也做了专门适配，不会出现画面拉伸变形的问题，保持原始比例输出。</p>
 <h2>五、文件传输功能</h2>
 <p>远程连接状态下，点击工具栏的"文件传输"按钮即可打开文件传输窗口。支持拖拽传输和选择文件传输两种方式，且不限文件大小。局域网内传输速度可达数百MB/s，广域网传输速度通常在10-50MB/s之间。传输过程中支持暂停、恢复和断点续传功能。</p>
-
+<p>文件传输还提供以下实用功能：剪贴板同步——直接在控制端复制文本或图片，在远程桌面中粘贴，无需打开文件传输窗口；传输速度监控——实时显示上传下载速度和预计剩余时间；批量传输管理——可以同时添加多个传输任务，系统会按队列顺序依次处理，支持调整传输优先级。</p>
 <h2>六、防窥模式</h2>
 <p>开启防窥模式后，被控端屏幕会显示黑屏或自定义画面，防止旁人偷看您的远程操作内容。这对在公共场合进行远程办公或处理敏感信息时非常实用。在工具栏中点击"防窥"按钮即可开启或关闭，操作非常便捷。</p>
-
+<p>防窥模式支持自定义显示内容，您可以设置被控端显示黑屏、模糊画面或自定义图片。在办公室环境中，防窥模式可以让被控端看起来像是处于锁屏状态，不会引起旁人注意。开启防窥模式后，被控端的键盘和鼠标输入也会被锁定，防止他人误操作影响您的远程会话。</p>
 <h2>七、高级设置项</h2>
-<p>在软件设置中，您还可以进行更多高级配置：调整鼠标灵敏度以适应不同操作习惯；设置自适应分辨率自动匹配被控端分辨率；配置开机自启动实现无人值守；管理设备订阅列表批量添加设备等。合理配置这些选项可以让您的远程控制体验更加个性化和高效。</p>
-<p>掌握以上功能后，您就能充分发挥Windows版UU远程控制的全部潜力，获得出色的远程操作体验。</p>
+<img src="/img/article-2-3.webp" alt="UU远程控制Windows版高级设置面板" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>在软件设置中，您还可以进行更多高级配置：</p>
+<p><strong>鼠标与输入设置</strong>：调整鼠标灵敏度以适应不同操作习惯，游戏场景建议提高灵敏度，办公场景保持默认即可。设置是否显示远程鼠标指针，某些场景下隐藏指针可以减少视觉干扰。</p>
+<p><strong>显示与画质设置</strong>：设置自适应分辨率自动匹配被控端分辨率，确保画面始终以最佳比例显示。配置色彩采样模式（4:4:4/4:2:0），对文字清晰度有要求时建议选择4:4:4。</p>
+<p><strong>连接与启动设置</strong>：配置开机自启动实现无人值守远程访问，软件开机后自动运行并登录账号，无需手动操作。设置自动重连策略，网络中断后自动尝试恢复连接，减少手动干预。</p>
+<p><strong>设备与订阅管理</strong>：管理设备订阅列表，批量添加和删除设备。支持导入订阅链接一次性添加多台设备，适合需要管理大量远程设备的用户。设置设备分组，按用途或位置分类管理。</p>
+<p>合理配置这些选项可以让您的远程控制体验更加个性化和高效。建议根据实际使用场景逐步调整，找到最适合自己的配置方案。</p>
+<p>掌握以上功能后，您就能充分发挥Windows版UU远程控制的全部潜力，获得出色的远程操作体验。</p>
 <div class="cta-box">
   <h3>立即下载UU远程控制</h3>
   <p>真4K蓝光画质/144帧/超低延迟/全免费，开始您的远程控制之旅</p>
@@ -183,11 +199,56 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <footer class="footer">
-  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
-  <div style="margin-top:10px">
-    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
-    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
-    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  <div style="max-width:1100px;margin:0 auto;padding:40px 24px 20px">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:32px;text-align:left">
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">产品</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">官方下载</a>
+          <a href="https://www.uuyckz.com.cn/#features" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">功能介绍</a>
+          <a href="https://www.uuyckz.com.cn/articles.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">使用教程</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">常见问题</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">下载</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Windows版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">macOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">iOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Android版下载</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">教程</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/article-1.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">下载安装指南</a>
+          <a href="https://www.uuyckz.com.cn/article-3.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">手机远程教程</a>
+          <a href="https://www.uuyckz.com.cn/article-8.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">文件传输技巧</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">错误代码排查</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">关于</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">软件介绍</a>
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">版本更新</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">安全保障</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">技术支持</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">法律</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/privacy-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">隐私政策</a>
+          <a href="https://www.uuyckz.com.cn/terms-of-service.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">用户协议</a>
+          <a href="https://www.uuyckz.com.cn/cookie-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Cookie政策</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(245,158,11,0.1);text-align:center">
+      <p style="color:#aa8888;font-size:0.82rem">&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+    </div>
   </div>
 </footer>
 </body>

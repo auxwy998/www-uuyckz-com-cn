@@ -85,6 +85,9 @@ a{text-decoration:none;color:inherit}
 .footer a:hover{color:#f59e0b}
 @media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.1rem}}
 @media(max-width:480px){.article-header h1{font-size:1.2rem}}
+
+@media(max-width:768px){.footer>div>div{grid-template-columns:1fr 1fr!important;gap:20px!important}}
+@media(max-width:480px){.footer>div>div{grid-template-columns:1fr!important;gap:16px!important}}
 </style>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"3QV2euZYoqivMBCK",ck:"3QV2euZYoqivMBCK"})</script></head>
 <body>
@@ -122,30 +125,49 @@ a{text-decoration:none;color:inherit}
 
 <h2>一、远程开机的工作原理</h2>
 <p>远程开机基于网络唤醒（Wake on LAN，简称WoL）技术。当电脑处于关机但接通电源的状态时，网卡仍然保持低功耗监听状态，等待接收特定格式的网络唤醒数据包（Magic Packet）。当网卡收到这个特殊数据包时，会向主板发送开机信号，触发电脑正常启动。</p>
-<p>需要特别注意的是，远程开机要求电脑必须接通电源（不能拔掉电源线），且网卡和主板均支持WoL功能。笔记本电脑由于电源管理机制的限制，部分型号可能不支持远程开机功能，建议优先在台式机上使用。</p>
-
+<p>需要特别注意的是，远程开机要求电脑必须接通电源（不能拔掉电源线），且网卡和主板均支持WoL功能。笔记本电脑由于电源管理机制的限制，部分型号可能不支持远程开机功能，建议优先在台式机上使用。台式机关机后，只要电源线未拔出，主板上的待机LED灯亮起，就表示网卡有供电，具备远程开机的硬件基础。</p>
+<p><strong>网络唤醒数据包的工作机制</strong>：Magic Packet是一个特殊格式的UDP广播包，包含被唤醒网卡的MAC地址重复16次。当网卡监听到包含自身MAC地址的Magic Packet时，会触发开机流程。UU远程在发送唤醒数据包前，会先通过服务器中转确认被控端设备的MAC地址和网络位置，确保唤醒包能够准确送达目标设备。</p>
 <h2>二、BIOS设置详解</h2>
+<img src="/img/article-7-1.webp" alt="BIOS中Wake on LAN设置界面示意图" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
+
 <p>BIOS设置是远程开机配置的第一步，也是最关键的一步。不同品牌主板的BIOS界面可能不同，但基本设置项类似：</p>
-<p>1. <strong>进入BIOS</strong>：开机时按下Del键或F2键进入BIOS设置界面，具体按键取决于主板品牌，华硕通常为Del，微星为Del，技嘉为Del或F2。</p>
-<p>2. <strong>开启网络唤醒</strong>：在"Advanced"或"Power Management"菜单中找到"Wake on LAN"或"Power On By PCI-E/LAN"选项，将其设置为"Enabled"状态。部分主板可能将该选项放在"APM Configuration"子菜单中。</p>
-<p>3. <strong>关闭ErP节能</strong>：在电源管理中找到"ErP Ready"选项，设置为"Disable"。ErP是一项欧洲节能标准，开启后会在关机时完全切断网卡供电，导致网卡无法监听唤醒数据包，远程开机自然无法工作。</p>
+<p>1. <strong>进入BIOS</strong>：开机时按下Del键或F2键进入BIOS设置界面，具体按键取决于主板品牌，华硕通常为Del，微星为Del，技嘉为Del或F2。部分新型主板支持通过Windows的高级启动选项进入UEFI设置。</p>
+<p>2. <strong>开启网络唤醒</strong>：在"Advanced"或"Power Management"菜单中找到"Wake on LAN"或"Power On By PCI-E/LAN"选项，将其设置为"Enabled"状态。部分主板可能将该选项放在"APM Configuration"子菜单中。如果同时存在"Power On By PCI-E"和"Power On By LAN"两个选项，建议都开启以确保兼容性。</p>
+<p>3. <strong>关闭ErP节能</strong>：在电源管理中找到"ErP Ready"选项，设置为"Disable"。ErP是一项欧洲节能标准，开启后会在关机时完全切断网卡供电，导致网卡无法监听唤醒数据包，远程开机自然无法工作。这是远程开机失败最常见的原因之一。</p>
 <p>4. <strong>保存退出</strong>：按F10保存设置并退出BIOS，电脑会自动重启。</p>
-
+<p><strong>BIOS设置注意事项</strong>：部分主板的BIOS界面为中文，设置项名称可能略有不同，但功能一致。如果找不到"Wake on LAN"选项，可以尝试在"电源管理"或"高级"菜单中搜索包含"LAN""Network""PCI-E""Wake"关键词的选项。联想、惠普等品牌机可能需要在BIOS的"Security"菜单中额外开启"Network Boot"选项。</p>
 <h2>三、Windows系统网卡配置</h2>
-<p>BIOS设置完成后，还需要在Windows系统中正确配置网卡属性：</p>
-<p>1. 右键"此电脑"选择"管理"，进入"设备管理器"界面。2. 展开"网络适配器"列表，找到有线网卡（远程开机通常需要有线网卡支持，无线网卡部分型号不支持WoL），右键选择"属性"。3. 切换到"电源管理"选项卡，勾选"允许此设备唤醒计算机"和"只允许幻数据包唤醒计算机"两个选项。4. 切换到"高级"选项卡，在属性列表中找到"唤醒功能"或"Wake on Magic Packet"，将值设置为"开启"。</p>
-<p>如果您的电脑使用的是Realtek或Intel网卡，高级选项中可能还有"关机时唤醒"选项，也需要设置为"开启"。</p>
+<img src="/img/article-7-2.webp" alt="Windows网卡唤醒功能配置界面" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>BIOS设置完成后，还需要在Windows系统中正确配置网卡属性：</p>
+<p>1. 右键"此电脑"选择"管理"，进入"设备管理器"界面。</p>
+<p>2. 展开"网络适配器"列表，找到有线网卡（远程开机通常需要有线网卡支持，无线网卡部分型号不支持WoL），右键选择"属性"。</p>
+<p>3. 切换到"电源管理"选项卡，勾选"允许此设备唤醒计算机"和"只允许幻数据包唤醒计算机"两个选项。如果第一个选项是灰色不可勾选状态，说明显卡驱动不支持WoL或BIOS未正确配置。</p>
+<p>4. 切换到"高级"选项卡，在属性列表中找到"唤醒功能"或"Wake on Magic Packet"，将值设置为"开启"。</p>
+<p>如果您的电脑使用的是Realtek或Intel网卡，高级选项中可能还有"关机时唤醒"选项，也需要设置为"开启"。Intel网卡还需要检查"PME支持"选项是否已开启。</p>
+<p><strong>验证配置是否生效</strong>：配置完成后关机，观察网口指示灯是否仍然亮起。如果网口灯亮着，说明网卡在关机后仍有供电，配置正确；如果网口灯熄灭，说明网卡未获得供电，需要重新检查BIOS和Windows的电源管理设置。</p>
+<p><strong>无线网卡注意事项</strong>：大多数无线网卡不支持WoL功能，因为WiFi连接在关机后会断开。如果必须使用无线网卡远程开机，需要确认网卡型号是否支持"WiFi Wake on Wireless LAN"功能，目前仅部分Intel无线网卡支持此特性。</p>
 <h2>四、UU远程中的远程开机设置</h2>
 <p>完成BIOS和网卡配置后，在UU远程控制软件中进行最后的设置：</p>
-<p>1. 在被控端软件的"设置-远程开机"页面中，开启远程开机功能。2. 软件会自动检测网卡是否支持WoL功能，如果检测到支持则显示绿色标识，不支持则显示红色提示。3. 如果被控端通过路由器连接网络，可能需要在路由器管理界面中设置端口转发或ARP绑定，确保唤醒数据包能够正确送达被控端网卡。</p>
-
+<p>1. 在被控端软件的"设置-远程开机"页面中，开启远程开机功能。</p>
+<p>2. 软件会自动检测网卡是否支持WoL功能，如果检测到支持则显示绿色标识，不支持则显示红色提示。</p>
+<p>3. 如果被控端通过路由器连接网络，可能需要在路由器管理界面中设置端口转发或ARP绑定，确保唤醒数据包能够正确送达被控端网卡。ARP绑定的方法是在路由器DHCP设置中，将被控端的MAC地址与IP地址进行静态绑定，防止路由器ARP表老化后无法将唤醒包转发到目标设备。</p>
+<p><strong>路由器配置要点</strong>：部分路由器默认开启了"AP隔离"或"客户端隔离"功能，会阻止设备间的广播包传递，导致远程开机失败。建议在路由器设置中关闭这些隔离功能。同时确认路由器的DHCP租约时间设置较长（建议24小时以上），避免被控端IP地址频繁变化导致ARP绑定失效。</p>
 <h2>五、使用远程开机的操作步骤</h2>
 <p>配置完成后，在控制端的设备列表中，关机状态的设备旁会显示"远程开机"按钮。点击后，UU远程会向被控端发送唤醒数据包。通常5-10秒后电脑即可开机，再等待系统启动完成（约30秒到1分钟）即可发起远程连接。</p>
-
+<p><strong>完整操作流程</strong>：打开UU远程控制→找到目标设备（显示离线状态）→点击"远程开机"按钮→等待5-10秒，设备状态变为"正在启动"→等待约1分钟，设备状态变为"在线"→点击设备名称发起远程连接。</p>
+<p>如果第一次点击"远程开机"没有反应，可以尝试再次点击。部分网络环境下，唤醒数据包可能需要发送多次才能成功到达被控端。UU远程会自动重试3次，间隔5秒，无需手动反复操作。</p>
 <h2>六、常见问题排查</h2>
-<p>如果远程开机不成功，请按以下步骤逐一排查：1. 确认电脑已接通电源，且关机后网卡指示灯仍然亮着；2. 重新检查BIOS中WoL和ErP设置是否正确；3. 确认Windows网卡属性中唤醒功能已启用；4. 检查路由器是否需要设置ARP绑定或端口转发；5. 部分主板需要在BIOS中同时开启PCIe唤醒支持。一旦配置成功，远程开机功能即可长期稳定使用。</p>
+<img src="/img/article-7-3.webp" alt="远程开机故障排查流程示意图" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>如果远程开机不成功，请按以下步骤逐一排查：</p>
+<p>1. <strong>确认电源状态</strong>：确认电脑已接通电源，且关机后网卡指示灯仍然亮着。如果灯不亮，说明网卡在关机后没有供电，远程开机不可能成功。</p>
+<p>2. <strong>检查BIOS设置</strong>：重新检查BIOS中WoL和ErP设置是否正确。部分主板更新BIOS后设置会被重置，需要重新配置。</p>
+<p>3. <strong>确认Windows网卡属性</strong>：确认Windows网卡属性中唤醒功能已启用。Windows更新后有时会重置网卡电源管理设置。</p>
+<p>4. <strong>检查路由器设置</strong>：检查路由器是否需要设置ARP绑定或端口转发。如果被控端和控制端不在同一子网，路由器的广播包转发配置尤为重要。</p>
+<p>5. <strong>检查主板PCIe设置</strong>：部分主板需要在BIOS中同时开启PCIe唤醒支持，仅开启LAN唤醒可能不够。</p>
+<p>6. <strong>尝试其他唤醒方式</strong>：如果UU远程唤醒不成功，可以尝试使用其他WoL工具（如手机上的Wake On LAN应用）发送唤醒包，验证是网络问题还是软件配置问题。</p>
+<p>一旦配置成功，远程开机功能即可长期稳定使用。建议配置完成后做一次完整的测试：远程关机→远程开机→远程连接，确认整个流程畅通无阻。</p>
 <div class="cta-box">
   <h3>立即下载UU远程控制</h3>
   <p>真4K蓝光画质/144帧/超低延迟/全免费，开始您的远程控制之旅</p>
@@ -180,11 +202,56 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <footer class="footer">
-  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
-  <div style="margin-top:10px">
-    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
-    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
-    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  <div style="max-width:1100px;margin:0 auto;padding:40px 24px 20px">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:32px;text-align:left">
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">产品</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">官方下载</a>
+          <a href="https://www.uuyckz.com.cn/#features" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">功能介绍</a>
+          <a href="https://www.uuyckz.com.cn/articles.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">使用教程</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">常见问题</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">下载</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Windows版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">macOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">iOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Android版下载</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">教程</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/article-1.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">下载安装指南</a>
+          <a href="https://www.uuyckz.com.cn/article-3.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">手机远程教程</a>
+          <a href="https://www.uuyckz.com.cn/article-8.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">文件传输技巧</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">错误代码排查</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">关于</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">软件介绍</a>
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">版本更新</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">安全保障</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">技术支持</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">法律</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/privacy-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">隐私政策</a>
+          <a href="https://www.uuyckz.com.cn/terms-of-service.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">用户协议</a>
+          <a href="https://www.uuyckz.com.cn/cookie-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Cookie政策</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(245,158,11,0.1);text-align:center">
+      <p style="color:#aa8888;font-size:0.82rem">&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+    </div>
   </div>
 </footer>
 </body>

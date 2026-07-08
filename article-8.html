@@ -85,6 +85,9 @@ a{text-decoration:none;color:inherit}
 .footer a:hover{color:#f59e0b}
 @media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.1rem}}
 @media(max-width:480px){.article-header h1{font-size:1.2rem}}
+
+@media(max-width:768px){.footer>div>div{grid-template-columns:1fr 1fr!important;gap:20px!important}}
+@media(max-width:480px){.footer>div>div{grid-template-columns:1fr!important;gap:16px!important}}
 </style>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"3QV2euZYoqivMBCK",ck:"3QV2euZYoqivMBCK"})</script></head>
 <body>
@@ -121,31 +124,47 @@ a{text-decoration:none;color:inherit}
 <p>文件传输是远程控制场景中的高频需求。UU远程控制的文件传输功能不限文件大小，支持跨设备高速互传，无论是几KB的工作文档、几百MB的设计素材还是几GB的视频文件，都能快速稳定传输。本文将介绍文件传输的多种使用方法和提速技巧，帮助您高效完成跨设备文件传输。</p>
 
 <h2>一、文件传输的两种开启方式</h2>
+<img src="/img/article-8-1.webp" alt="UU远程控制文件传输模式选择界面" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
+
 <p>UU远程提供两种文件传输方式，分别适用于不同的使用场景：</p>
-<p><strong>远程会话内传输</strong>：建立远程桌面连接后，点击工具栏的"文件传输"按钮，即可打开文件传输窗口。这种方式需要在远程连接状态下使用，适合在远程操作过程中临时传输文件，不需要退出远程桌面。</p>
-<p><strong>独立文件传输模式</strong>：无需建立远程桌面连接，在设备列表中点击目标设备旁的"文件传输"按钮即可直接进入文件传输模式。这种方式不会占用远程桌面通道，传输更高效，适合只需要传输文件不需要远程操作的场景。</p>
-
+<p><strong>远程会话内传输</strong>：建立远程桌面连接后，点击工具栏的"文件传输"按钮，即可打开文件传输窗口。这种方式需要在远程连接状态下使用，适合在远程操作过程中临时传输文件，不需要退出远程桌面。文件传输窗口可以悬浮在远程桌面上方，拖拽到任意位置不影响操作。</p>
+<p><strong>独立文件传输模式</strong>：无需建立远程桌面连接，在设备列表中点击目标设备旁的"文件传输"按钮即可直接进入文件传输模式。这种方式不会占用远程桌面通道，传输更高效，适合只需要传输文件不需要远程操作的场景。独立模式的传输速度通常比会话内传输快10-20%，因为不需要同时编解码画面数据。</p>
+<p><strong>方式选择建议</strong>：如果只是临时传个小文件，使用远程会话内传输更方便；如果要批量传输大文件或项目目录，建议使用独立文件传输模式，速度更快更稳定。两种模式都支持后台传输，切换到其他应用不会中断传输过程。</p>
 <h2>二、传输操作方法详解</h2>
-<p><strong>拖拽传输</strong>：最直观便捷的方式，将文件或文件夹从本地资源管理器直接拖拽到传输窗口的目标区域即可开始上传，反向拖拽则为下载文件。拖拽操作支持批量文件和文件夹。</p>
-<p><strong>选择文件传输</strong>：点击传输窗口的"添加文件"按钮，浏览并选择要传输的文件或文件夹，支持多选和批量传输。这种方式适合不习惯拖拽操作或需要精确选择文件的用户。</p>
-<p><strong>剪贴板传输</strong>：在远程连接状态下，可以直接通过剪贴板复制粘贴文本和小文件，无需打开文件传输窗口，操作非常便捷。适合快速传输少量文本或截图。</p>
-
+<p><strong>拖拽传输</strong>：最直观便捷的方式，将文件或文件夹从本地资源管理器直接拖拽到传输窗口的目标区域即可开始上传，反向拖拽则为下载文件。拖拽操作支持批量文件和文件夹，一次可以拖入多个文件或整个目录。拖拽时会有视觉反馈，松手即开始传输。</p>
+<p><strong>选择文件传输</strong>：点击传输窗口的"添加文件"按钮，浏览并选择要传输的文件或文件夹，支持多选和批量传输。这种方式适合不习惯拖拽操作或需要精确选择文件的用户。选择文件后可以预览文件大小和数量，确认无误后点击"开始传输"。</p>
+<p><strong>剪贴板传输</strong>：在远程连接状态下，可以直接通过剪贴板复制粘贴文本和小文件，无需打开文件传输窗口，操作非常便捷。适合快速传输少量文本或截图。剪贴板传输支持双向同步，控制端复制的内容可以在被控端粘贴，反之亦然。</p>
+<p><strong>传输操作技巧</strong>：传输大文件时建议先查看预估传输时间，避免传输到一半才发现时间不够。批量传输大量小文件时，可以先压缩打包再传输，效率会大幅提升。传输过程中可以随时添加新的传输任务到队列，系统会按顺序处理。</p>
 <h2>三、传输速度优化技巧</h2>
+<img src="/img/article-8-2.webp" alt="UU远程控制文件传输速度优化设置" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
+
 <p>UU远程的文件传输速度主要受网络带宽和连接方式影响。以下技巧可以帮助您提升传输速度：</p>
-<p>1. <strong>局域网直连优先</strong>：如果控制端和被控端在同一局域网内，UU远程会自动建立点对点直连通道，传输速度可达数百MB/s。确保两端设备连接在同一路由器下，且没有网络隔离设置。</p>
-<p>2. <strong>开启专网加速</strong>：广域网传输时，UU远程的专网直连技术可以绕过公网拥堵节点，选择最优传输路径，显著提升传输速度。在设置中确保已开启"专网加速"选项。</p>
+<p>1. <strong>局域网直连优先</strong>：如果控制端和被控端在同一局域网内，UU远程会自动建立点对点直连通道，传输速度可达数百MB/s。确保两端设备连接在同一路由器下，且没有网络隔离设置。千兆局域网环境下传输1GB文件约需10秒。</p>
+<p>2. <strong>开启专网加速</strong>：广域网传输时，UU远程的专网直连技术可以绕过公网拥堵节点，选择最优传输路径，显著提升传输速度。在设置中确保已开启"专网加速"选项。专网加速对跨运营商传输的效果尤为明显，速度提升可达3-5倍。</p>
 <p>3. <strong>临时降低画质</strong>：如果同时在进行远程桌面操作，高画质设置会占用大量网络带宽，影响文件传输速度。可以在传输大文件时临时将画质降到均衡或流畅模式，传输完成后再调回高画质。</p>
-<p>4. <strong>压缩打包再传</strong>：将多个小文件压缩打包后再传输，可以减少网络握手次数，提升整体传输效率。特别是包含大量零碎文件的项目目录，压缩后传输速度提升明显。</p>
-
+<p>4. <strong>压缩打包再传</strong>：将多个小文件压缩打包后再传输，可以减少网络握手次数，提升整体传输效率。特别是包含大量零碎文件的项目目录，压缩后传输速度提升明显。建议使用7z格式压缩，压缩率和速度的平衡最佳。</p>
+<p>5. <strong>避开网络高峰期</strong>：广域网传输速度受整体网络负载影响，晚上8-10点是网络高峰期，传输速度可能下降30-50%。如果传输超大文件，建议在凌晨等网络空闲时段进行。</p>
 <h2>四、传输管理与断点续传</h2>
-<p>UU远程的文件传输窗口提供了完善的传输管理功能：实时查看传输进度和速度、暂停和恢复传输任务、管理传输队列的优先级。传输完成的文件会按照上传和下载分类显示，方便查找。如果传输因网络中断或其他原因失败，支持断点续传功能，已传输的部分不会丢失，重新连接后从断点处继续传输。</p>
-
+<p>UU远程的文件传输窗口提供了完善的传输管理功能：</p>
+<p><strong>实时监控</strong>：实时查看传输进度和速度，每个文件的传输状态（等待中/传输中/已完成/失败）一目了然。传输速度和剩余时间实时更新，方便评估传输进度。</p>
+<p><strong>暂停与恢复</strong>：可以随时暂停和恢复传输任务。暂停后已传输的部分保存在临时文件中，恢复时从暂停位置继续，不会重新传输已完成的部分。</p>
+<p><strong>队列管理</strong>：管理传输队列的优先级，可以将紧急文件提前到队列前面优先传输。支持拖拽排序调整传输顺序。</p>
+<p><strong>断点续传</strong>：如果传输因网络中断或其他原因失败，支持断点续传功能，已传输的部分不会丢失，重新连接后从断点处继续传输。即使关闭软件重启电脑，下次打开UU远程时也会自动检测未完成的传输任务并提示继续。</p>
+<p><strong>传输历史</strong>：传输完成的文件会按照上传和下载分类显示，方便查找和管理。历史记录保留最近30天的传输详情，支持按文件名和日期搜索。</p>
 <h2>五、安全保障机制</h2>
-<p>所有文件传输均经过DTLS+AES加密处理，确保文件内容在传输过程中不被窃取或篡改。传输仅发生在控制端和被控端之间，不经过任何第三方服务器中转，最大限度保障数据安全和隐私。对于包含敏感信息的文件传输，还可以开启额外的传输加密选项。</p>
-
+<p>所有文件传输均经过DTLS+AES加密处理，确保文件内容在传输过程中不被窃取或篡改。传输仅发生在控制端和被控端之间，不经过任何第三方服务器中转，最大限度保障数据安全和隐私。</p>
+<p><strong>加密传输详解</strong>：DTLS协议在传输层建立安全通道，AES算法对文件内容进行加密编码。即使网络中被监听，截获的数据包也是密文，无法还原原始文件内容。加密过程由硬件加速，不会影响传输速度。</p>
+<p><strong>点对点传输架构</strong>：UU远程优先建立点对点直连通道，文件直接在两端设备间传输，不经过任何中转服务器。即使在必须中转的情况下，中转节点也仅转发加密后的数据流，无法解密查看文件内容。这一架构从设计上杜绝了数据泄露的可能性。</p>
+<p>对于包含敏感信息的文件传输，还可以开启额外的传输加密选项，使用更高级别的加密算法。企业用户可以通过配置策略强制所有文件传输使用最高安全级别。</p>
 <h2>六、典型使用场景</h2>
-<p>文件传输在日常使用中有大量实用场景：远程办公时快速获取公司电脑上的工作文件和项目资料；外出时将手机拍摄的照片和视频传到电脑上进行编辑处理；在多台电脑间同步项目文件和配置文件；远程协助时将驱动程序或工具软件传到对方电脑上安装部署。UU远程的文件传输不限大小、安全可靠，是远程控制场景中不可或缺的实用功能。</p>
+<img src="/img/article-8-3.webp" alt="UU远程控制跨设备文件传输场景示意图" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>文件传输在日常使用中有大量实用场景：</p>
+<p><strong>远程办公</strong>：快速获取公司电脑上的工作文件和项目资料。在公司电脑上编辑的文档，回家后可以从家里电脑直接拉取最新版本继续工作，无需通过U盘或网盘中转。PPT、Excel等办公文件通常只有几MB到几十MB，传输几乎瞬间完成。</p>
+<p><strong>照片视频同步</strong>：外出时将手机拍摄的照片和视频传到电脑上进行编辑处理。通过UU远程手机端的文件传输功能，选择照片直接上传到电脑指定目录，免去数据线连接的麻烦。支持选择原始画质传输，不压缩不降质。</p>
+<p><strong>多电脑项目同步</strong>：在多台电脑间同步项目文件和配置文件。开发人员可以将代码项目在工作电脑和家用电脑间快速同步，设计师可以在办公室和家中电脑间同步设计素材。</p>
+<p><strong>远程协助部署</strong>：远程协助时将驱动程序或工具软件传到对方电脑上安装部署。IT管理员无需让对方去下载，直接将安装包传过去即可，简化了远程协助的流程。</p>
+<p>UU远程的文件传输不限大小、安全可靠，是远程控制场景中不可或缺的实用功能。无论是日常办公还是专业技术工作，都能大幅提升跨设备文件操作的效率。</p>
 <div class="cta-box">
   <h3>立即下载UU远程控制</h3>
   <p>真4K蓝光画质/144帧/超低延迟/全免费，开始您的远程控制之旅</p>
@@ -180,11 +199,56 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <footer class="footer">
-  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
-  <div style="margin-top:10px">
-    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
-    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
-    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  <div style="max-width:1100px;margin:0 auto;padding:40px 24px 20px">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:32px;text-align:left">
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">产品</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">官方下载</a>
+          <a href="https://www.uuyckz.com.cn/#features" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">功能介绍</a>
+          <a href="https://www.uuyckz.com.cn/articles.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">使用教程</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">常见问题</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">下载</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Windows版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">macOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">iOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Android版下载</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">教程</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/article-1.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">下载安装指南</a>
+          <a href="https://www.uuyckz.com.cn/article-3.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">手机远程教程</a>
+          <a href="https://www.uuyckz.com.cn/article-8.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">文件传输技巧</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">错误代码排查</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">关于</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">软件介绍</a>
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">版本更新</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">安全保障</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">技术支持</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">法律</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/privacy-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">隐私政策</a>
+          <a href="https://www.uuyckz.com.cn/terms-of-service.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">用户协议</a>
+          <a href="https://www.uuyckz.com.cn/cookie-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Cookie政策</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(245,158,11,0.1);text-align:center">
+      <p style="color:#aa8888;font-size:0.82rem">&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+    </div>
   </div>
 </footer>
 </body>

@@ -85,6 +85,9 @@ a{text-decoration:none;color:inherit}
 .footer a:hover{color:#f59e0b}
 @media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.1rem}}
 @media(max-width:480px){.article-header h1{font-size:1.2rem}}
+
+@media(max-width:768px){.footer>div>div{grid-template-columns:1fr 1fr!important;gap:20px!important}}
+@media(max-width:480px){.footer>div>div{grid-template-columns:1fr!important;gap:16px!important}}
 </style>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"3QV2euZYoqivMBCK",ck:"3QV2euZYoqivMBCK"})</script></head>
 <body>
@@ -121,30 +124,47 @@ a{text-decoration:none;color:inherit}
 <p>macOS版UU远程控制针对Mac用户的使用习惯做了大量专属优化，包括Retina画质适配、触控板手势支持和多桌面切换等功能。与Windows版相比，Mac版在保留所有核心功能的基础上，充分利用了macOS平台的硬件和系统特性，提供了独特的使用体验。本文将分享Mac版UU远程的深度使用体验和设置优化技巧。</p>
 
 <h2>一、Retina画质适配详解</h2>
+<img src="/img/article-10-1.webp" alt="UU远程控制Mac版Retina画质适配效果" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
+
 <p>Mac设备的Retina显示屏拥有极高的像素密度，普通远程控制软件在Mac上往往会出现画面模糊的问题，这是因为Retina屏幕的2x缩放与远程画面的1x渲染之间存在分辨率匹配差异。UU远程控制针对Retina屏幕做了专门适配，支持原生的2x渲染模式，确保远程画面的每个像素都能精确映射到Retina屏幕的物理像素上。</p>
 <p>在设置中开启"Retina适配"选项后，UU远程会自动检测被控端的原始分辨率和Mac的缩放因子，以最佳方式呈现远程画面。无论被控端是标准1080P还是4K分辨率，都能在Retina屏幕上获得清晰锐利的显示效果，文字边缘没有毛刺，图像细节完整保留。</p>
-
+<p><strong>Retina适配的技术原理</strong>：普通远程软件在Retina屏幕上只使用逻辑分辨率（如1440x900）进行渲染，而Retina屏幕的实际物理分辨率是逻辑分辨率的两倍（2880x1800），导致每个逻辑像素被拉伸为4个物理像素显示，画面自然模糊。UU远程的Retina适配使用物理分辨率渲染，每个物理像素独立着色，因此画面清晰度与本地应用完全一致。</p>
+<p><strong>外接显示器场景</strong>：当Mac连接非Retina的外接显示器时，UU远程会自动检测并切换到对应的渲染模式。在Retina屏幕上使用2x渲染，在外接显示器上使用1x渲染，双屏场景下每个屏幕都获得最佳显示效果，不会出现一边模糊一边正常的情况。</p>
 <h2>二、触控板手势操作</h2>
-<p>MacBook的Force Touch触控板是macOS体验的核心之一，UU远程充分利用了触控板的多点触控能力，提供了与系统原生手势风格一致的操作方案：</p>
-<p><strong>单指轻点</strong>：等同于鼠标左键单击，操作自然流畅。<strong>双指轻点</strong>：等同于鼠标右键单击，用于调出右键菜单。<strong>双指滚动</strong>：页面上下或左右滚动，支持自然方向和传统方向切换。<strong>双指捏合/张开</strong>：缩放远程画面，放大后可看清细节内容。<strong>三指左右滑动</strong>：在被控端多个显示器之间快速切换。<strong>四指上划</strong>：显示UU远程快捷工具面板，包含常用功能按钮。</p>
-<p>这些手势操作与macOS原生的触控板手势风格保持一致，Mac用户几乎无需额外学习即可上手使用。在设置中还可以自定义手势映射，根据个人操作习惯进行调整。</p>
+<img src="/img/article-10-2.webp" alt="UU远程控制Mac版触控板手势配置界面" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>MacBook的Force Touch触控板是macOS体验的核心之一，UU远程充分利用了触控板的多点触控能力，提供了与系统原生手势风格一致的操作方案：</p>
+<p><strong>基础手势</strong>：单指轻点等同于鼠标左键单击，操作自然流畅；双指轻点等同于鼠标右键单击，用于调出右键菜单；双指滚动用于页面上下或左右滚动，支持自然方向和传统方向切换，与系统偏好设置中的滚动方向保持一致。</p>
+<p><strong>画面控制手势</strong>：双指捏合/张缩放远程画面，放大后可看清细节内容；三指左右滑动在被控端多个显示器之间快速切换；四指上划显示UU远程快捷工具面板，包含常用功能按钮。</p>
+<p>这些手势操作与macOS原生的触控板手势风格保持一致，Mac用户几乎无需额外学习即可上手使用。在设置中还可以自定义手势映射，根据个人操作习惯进行调整。例如可以将三指轻点映射为发送Ctrl+Click，或者将四指下划映射为显示Mission Control。</p>
+<p><strong>Force Touch支持</strong>：UU远程支持Force Touch力度感应，重按触控板等同于鼠标右键操作，轻按为左键操作，与MacBook原生操作体验一致。在远程操作中可以感受到触觉反馈，大幅提升操作的自然感。</p>
 <h2>三、多桌面与全屏模式</h2>
 <p>macOS的Mission Control多桌面功能在UU远程中得到了良好支持。如果被控端连接了多个显示器，使用三指左右滑动手势可以在不同显示器之间切换。UU远程还会显示显示器缩略图预览，方便快速定位目标屏幕。</p>
 <p>此外，UU远程支持macOS的原生全屏模式。点击窗口左上角的绿色全屏按钮，远程桌面会占据整个屏幕空间，配合Menu Bar自动隐藏功能，可以获得沉浸式的远程操作体验。通过四指上划可以调出Mission Control，快速切换回其他桌面空间。</p>
-
+<p><strong>全屏模式进阶技巧</strong>：在macOS Ventura及更新版本中，UU远程支持Stage Manager调度中心模式，可以将远程桌面窗口与其他应用窗口并排显示，在远程操作的同时参考本地文档或聊天窗口。如果你有超宽屏显示器，UU远程还支持将远程桌面窗口固定在屏幕一侧，另一侧显示本地应用，实现真正的多任务并行。</p>
+<p><strong>空间音频支持</strong>：当被控端播放音频时，UU远程会通过Mac的扬声器输出声音。在macOS Monterey及以上版本中，还支持空间音频功能，在使用AirPods等兼容耳机时可以获得沉浸式的音频体验。</p>
 <h2>四、系统权限配置指南</h2>
+<img src="/img/article-10-3.webp" alt="UU远程控制macOS系统权限配置示意图" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
+
 <p>macOS的安全机制较为严格，UU远程需要以下系统权限才能正常工作：</p>
-<p>1. <strong>辅助功能权限</strong>：在"系统设置-隐私与安全性-辅助功能"中授权UU远程控制。此权限用于模拟鼠标点击和键盘输入，是远程控制的核心功能权限。2. <strong>屏幕录制权限</strong>：在"系统设置-隐私与安全性-屏幕录制"中授权，用于捕获和传输远程画面内容。3. <strong>本地网络权限</strong>：首次启动时macOS会弹出本地网络权限请求，允许后才能发现和连接局域网内的设备。</p>
+<p>1. <strong>辅助功能权限</strong>：在"系统设置-隐私与安全性-辅助功能"中授权UU远程控制。此权限用于模拟鼠标点击和键盘输入，是远程控制的核心功能权限。未授权此权限将无法进行任何鼠标和键盘操作，远程桌面只能看不能动。</p>
+<p>2. <strong>屏幕录制权限</strong>：在"系统设置-隐私与安全性-屏幕录制"中授权，用于捕获和传输远程画面内容。未授权此权限将导致黑屏，因为UU远程无法获取屏幕画面数据。</p>
+<p>3. <strong>本地网络权限</strong>：首次启动时macOS会弹出本地网络权限请求，允许后才能发现和连接局域网内的设备。如果错过了弹窗，可以手动在"系统设置-隐私与安全性-本地网络"中开启。</p>
+<p>4. <strong>辅助功能权限配置注意事项</strong>：在macOS Ventura及以上版本中，授权辅助功能权限时需要点击锁图标输入管理员密码解锁设置页面，然后将UU远程拖入允许列表并确保开关处于打开状态。部分用户反馈授权后仍不生效，通常是因为没有重启UU远程软件，授权后必须退出并重新打开才能生效。</p>
 <p>如果未正确授予这些权限，UU远程可能无法正常工作或部分功能受限。遇到操作或显示异常时，首先检查系统权限设置是否完整授予。</p>
-
 <h2>五、性能优化设置建议</h2>
-<p>Mac版UU远程的性能优化建议：1. 对于M1/M2/M3系列芯片的Mac，UU远程已针对Apple Silicon做了原生优化，编解码性能优异，建议在设置中选择硬件编码模式。2. 对于Intel芯片的Mac，建议选择自动编码模式，软件会根据硬件能力自动选择最佳编码方案。3. 如果Mac连接了外接显示器，建议在显示器设置中选择匹配的缩放模式，避免远程画面出现额外的缩放处理导致画质下降。4. 长时间远程操作时，建议关闭Mac的自动休眠功能，防止中断远程会话。</p>
-
+<p>Mac版UU远程的性能优化建议：</p>
+<p>1. <strong>Apple Silicon优化</strong>：对于M1/M2/M3/M4系列芯片的Mac，UU远程已针对Apple Silicon做了原生优化，编解码性能优异，建议在设置中选择硬件编码模式。Apple Silicon的媒体引擎可以高效处理H.264/H.265编解码，CPU占用率极低，4K画质的远程桌面也能流畅运行。</p>
+<p>2. <strong>Intel芯片优化</strong>：对于Intel芯片的Mac，建议选择自动编码模式，软件会根据硬件能力自动选择最佳编码方案。如果自动模式不理想，可以尝试手动切换软件编码或硬件编码。较老的Intel Mac（2015年以前）建议使用均衡或流畅画质，避免CPU负载过高。</p>
+<p>3. <strong>外接显示器设置</strong>：如果Mac连接了外接显示器，建议在显示器设置中选择匹配的缩放模式，避免远程画面出现额外的缩放处理导致画质下降。外接4K显示器时建议选择"默认"缩放模式以获得最佳远程画面清晰度。</p>
+<p>4. <strong>防止休眠中断</strong>：长时间远程操作时，建议关闭Mac的自动休眠功能，防止中断远程会话。可以在"系统设置-显示器-高级"中开启"在显示器关闭时防止自动休眠"选项，或使用caffeinate命令临时阻止休眠。</p>
+<p>5. <strong>散热管理</strong>：长时间4K远程操作会导致Mac发热，MacBook用户建议使用散热支架辅助降温。在"活动监视器"中可以监控UU远程的CPU和内存占用，如果异常偏高可以尝试降低画质设置。</p>
 <h2>六、与iPhone和iPad的联动体验</h2>
 <p>UU远程支持iCloud同步功能，Mac端和iOS端的设备列表和连接记录可以互通共享。您可以在Mac上管理设备列表，在iPhone上直接使用，无需重复配置。Universal Clipboard剪贴板互通也让跨设备操作更加便捷——在Mac上复制的内容可以在远程会话中直接粘贴使用。对于拥有多台Apple设备的用户来说，这种无缝联动体验非常出色。</p>
+<p><strong>Handoff功能</strong>：在Mac和iPhone之间可以通过Handoff切换远程会话。例如在Mac上正在远程操作，需要出门时可以在iPhone上继续同一个远程会话，无需重新连接。设备列表和最近连接记录通过iCloud实时同步，切换过程自然流畅。</p>
+<p><strong>SideCar扩展</strong>：如果使用iPad作为Mac的SideCar副屏，UU远程可以同时显示在主屏和SideCar上，利用双屏优势提升远程操作效率。远程桌面显示在Mac主屏上，iPad副屏显示参考资料或通讯工具，分工协作效率更高。</p>
+<p><strong>快捷指令集成</strong>：UU远程支持iOS快捷指令，可以创建"连接我的办公室电脑"等语音快捷指令，对Siri说"连接办公室电脑"即可自动打开UU远程并发起连接，无需手动操作。在Apple Watch上也可以通过快捷指令快速发起远程连接。</p>
 <p>Mac版UU远程控制经过深度优化，充分发挥了macOS平台的硬件和系统特性，无论是用MacBook远程办公还是用iMac大屏远程游戏，都能获得出色的使用体验。</p>
-
 <div class="cta-box">
   <h3>立即下载UU远程控制</h3>
   <p>真4K蓝光画质/144帧/超低延迟/全免费，开始您的远程控制之旅</p>
@@ -179,11 +199,56 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <footer class="footer">
-  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
-  <div style="margin-top:10px">
-    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
-    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
-    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  <div style="max-width:1100px;margin:0 auto;padding:40px 24px 20px">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:32px;text-align:left">
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">产品</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">官方下载</a>
+          <a href="https://www.uuyckz.com.cn/#features" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">功能介绍</a>
+          <a href="https://www.uuyckz.com.cn/articles.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">使用教程</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">常见问题</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">下载</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Windows版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">macOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">iOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Android版下载</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">教程</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/article-1.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">下载安装指南</a>
+          <a href="https://www.uuyckz.com.cn/article-3.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">手机远程教程</a>
+          <a href="https://www.uuyckz.com.cn/article-8.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">文件传输技巧</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">错误代码排查</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">关于</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">软件介绍</a>
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">版本更新</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">安全保障</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">技术支持</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">法律</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/privacy-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">隐私政策</a>
+          <a href="https://www.uuyckz.com.cn/terms-of-service.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">用户协议</a>
+          <a href="https://www.uuyckz.com.cn/cookie-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Cookie政策</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(245,158,11,0.1);text-align:center">
+      <p style="color:#aa8888;font-size:0.82rem">&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+    </div>
   </div>
 </footer>
 </body>

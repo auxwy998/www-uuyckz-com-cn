@@ -85,6 +85,9 @@ a{text-decoration:none;color:inherit}
 .footer a:hover{color:#f59e0b}
 @media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}.article-header h1{font-size:1.4rem}.article-content h2{font-size:1.1rem}}
 @media(max-width:480px){.article-header h1{font-size:1.2rem}}
+
+@media(max-width:768px){.footer>div>div{grid-template-columns:1fr 1fr!important;gap:20px!important}}
+@media(max-width:480px){.footer>div>div{grid-template-columns:1fr!important;gap:16px!important}}
 </style>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"3QV2euZYoqivMBCK",ck:"3QV2euZYoqivMBCK"})</script></head>
 <body>
@@ -122,29 +125,45 @@ a{text-decoration:none;color:inherit}
 
 <h2>一、移动端基础操作入门</h2>
 <p>iOS和Android版UU远程控制的操作逻辑基本一致。登录网易账号后，设备列表会显示所有已登录同一账号的被控端设备，点击设备名称即可发起连接。连接过程中被控端会弹出确认提示，点击同意后即可开始远程控制。首次使用时建议先在同一WiFi环境下测试，确认功能正常后再在广域网环境中使用。</p>
-
+<p>移动端的连接流程经过专门优化，从点击设备到进入远程桌面通常只需3-5秒。连接建立后，屏幕上方会显示一个精简的工具栏，包含画质切换、虚拟键盘、文件传输等常用功能入口。向下滑动工具栏可以展开更多选项，向上滑动则收起工具栏以获得更大的操作区域。</p>
+<p><strong>使用小贴士</strong>：建议在首次使用前，先在设置中根据自己的使用习惯调整触控灵敏度、画质默认值等参数。如果主要使用场景是远程办公，推荐默认均衡画质+触控优化模式；如果是远程游戏，推荐流畅画质+低延迟模式。</p>
 <h2>二、触控手势操作详解</h2>
+<img src="/img/article-3-1.webp" alt="UU远程控制手机触控手势操作示意图" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
+
 <p>移动端没有物理键鼠，UU远程控制提供了完善的触控手势方案，覆盖了鼠标和键盘的主要操作：</p>
-<p><strong>单指点击</strong>：等同于鼠标左键单击，用于选择和确认操作。<strong>双指点击</strong>：等同于鼠标右键单击，用于打开右键菜单。<strong>单指长按</strong>：等同于鼠标右键菜单，长按后松开即可调出。<strong>双指捏合/张开</strong>：缩放远程画面，放大后可以看清细节内容。<strong>单指拖动</strong>：移动鼠标指针到目标位置。<strong>双指拖动</strong>：滚动页面内容，相当于鼠标滚轮。<strong>三指轻点</strong>：调出快捷工具栏，可以快速切换功能。</p>
-<p>这些手势操作需要一定时间适应，建议初次使用时先在非关键场景下练习，熟练后操作效率可以接近桌面端。</p>
-
+<p><strong>基础手势</strong>：单指点击等同于鼠标左键单击，用于选择和确认操作；双指点击等同于鼠标右键单击，用于打开右键菜单；单指长按等同于鼠标右键菜单，长按后松开即可调出。</p>
+<p><strong>画面控制手势</strong>：双指捏合/张缩放远程画面，放大后可以看清细节内容；双指拖动滚动页面内容，相当于鼠标滚轮；单指拖动移动鼠标指针到目标位置。</p>
+<p><strong>快捷操作手势</strong>：三指轻点调出快捷工具栏，可以快速切换功能；四指左右滑动切换最近使用的远程桌面会话（支持同时连接多台设备时使用）。</p>
+<p>这些手势操作需要一定时间适应，建议初次使用时先在非关键场景下练习，熟练后操作效率可以接近桌面端。UU远程还提供了手势练习模式，在设置中可以找到"手势教程"，通过互动引导帮助您快速掌握所有手势操作。</p>
+<p><strong>进阶技巧</strong>：对于iPad用户，UU远程支持Apple Pencil作为输入设备，可以实现更精准的点击和手写输入，在设计软件远程操作时特别有用。同时iPad版支持分屏操作，可以一边查看远程桌面一边参考本地文档。</p>
 <h2>三、虚拟键盘功能</h2>
-<p>点击屏幕下方的键盘图标即可呼出虚拟键盘。UU远程的虚拟键盘不仅支持常规文字输入，还提供了以下丰富的功能面板：常用快捷键面板，一键发送Ctrl+C、Ctrl+V、Ctrl+Z等常用组合键；功能键面板，包含F1-F12功能键和Esc键；方向键面板，提供上下左右方向键，方便操作需要方向键的应用和游戏；自定义快捷键功能，可以保存常用的快捷键组合，一键调用，大幅提升操作效率。</p>
-
+<p>点击屏幕下方的键盘图标即可呼出虚拟键盘。UU远程的虚拟键盘不仅支持常规文字输入，还提供了以下丰富的功能面板：</p>
+<p><strong>常用快捷键面板</strong>：一键发送Ctrl+C、Ctrl+V、Ctrl+Z、Ctrl+A等常用组合键，按住面板可以展开更多快捷键选项，覆盖日常办公90%以上的快捷键需求。</p>
+<p><strong>功能键面板</strong>：包含F1-F12功能键和Esc键，方便操作需要功能键的专业软件。还提供Print Screen、Scroll Lock、Pause/Break等不常用但特定场景下必需的按键。</p>
+<p><strong>方向键面板</strong>：提供上下左右方向键，方便操作需要方向键的应用和游戏。方向键面板支持长按连续输入，在文档翻页和表格导航时非常方便。</p>
+<p><strong>自定义快捷键功能</strong>：可以保存常用的快捷键组合，一键调用，大幅提升操作效率。比如将Ctrl+Shift+Esc（打开任务管理器）设为自定义快捷键，一键即可发送，无需在功能面板中翻找。</p>
+<p>虚拟键盘支持横屏自动展开完整布局，竖屏时显示精简面板，点击展开按钮切换到完整键盘。键盘透明度也可调节，在需要查看下方画面内容时降低透明度即可。</p>
 <h2>四、游戏操控模式</h2>
-<p>UU远程移动端特别为游戏场景优化了操控体验。进入游戏模式后，屏幕上会显示虚拟摇杆和按键区域，支持自定义按键位置和大小。更重要的是，UU远程提供游戏云键盘功能，内置了上百款热门游戏的预设操控方案，包括原神、暗黑破坏神、英雄联盟等，无需手动配置即可直接使用，开箱即用非常方便。</p>
-<p>如果预设方案不符合您的操作习惯，也可以创建自定义云键盘布局，自由调整每个按键的位置、大小和功能，保存后下次使用自动加载您的自定义方案。</p>
+<img src="/img/article-3-2.webp" alt="UU远程控制手机游戏操控模式界面" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>UU远程移动端特别为游戏场景优化了操控体验。进入游戏模式后，屏幕上会显示虚拟摇杆和按键区域，支持自定义按键位置和大小。更重要的是，UU远程提供游戏云键盘功能，内置了上百款热门游戏的预设操控方案，包括原神、暗黑破坏神、英雄联盟等，无需手动配置即可直接使用，开箱即用非常方便。</p>
+<p>如果预设方案不符合您的操作习惯，也可以创建自定义云键盘布局，自由调整每个按键的位置、大小和功能，保存后下次使用自动加载您的自定义方案。自定义方案还支持导入导出，方便在不同设备间共享您的操控配置。</p>
+<p><strong>游戏模式注意事项</strong>：进入游戏模式后，UU远程会自动优化网络传输参数，优先保证输入延迟最低。如果游戏过程中出现画面卡顿，可以在游戏模式设置中临时降低画质档位来换取更稳定的帧率。同时建议关闭手机的后台应用，释放内存和CPU资源给UU远程使用。连接蓝牙手柄可以获得更接近PC端的游戏体验，UU远程支持Xbox和PlayStation手柄的完整按键映射。</p>
 <h2>五、手柄支持配置</h2>
 <p>移动端支持蓝牙手柄连接，将手柄通过蓝牙与手机配对后，在UU远程设置中选择手柄操控模式即可。支持Xbox和PlayStation手柄，按键映射可以自定义调整。手柄操作会直接映射到被控端，延迟极低，在远程电脑上如同本地手柄一样被游戏识别。</p>
-
+<p>手柄配置的具体步骤如下：首先确保手柄电量充足，长按手柄配对键进入蓝牙配对模式；在手机蓝牙设置中搜索并连接手柄；打开UU远程，进入"设置-操控方式"选择"手柄模式"；系统会自动识别手柄类型并加载默认按键映射；如需自定义映射，进入"手柄设置-自定义映射"页面调整。支持调整摇杆灵敏度、扳机键死区、震动反馈等细节参数。</p>
+<p>对于Android用户，还支持USB OTG方式连接有线手柄，延迟比蓝牙更低，适合对操作精度要求极高的竞技类游戏。</p>
 <h2>六、画质与性能优化</h2>
-<p>移动端建议根据网络环境选择合适的画质档位。在4G或5G网络下，推荐使用均衡模式以节省流量；在WiFi环境下，可以选择高清或4K模式获得更好的视觉体验。还可以开启"触控优化"选项，降低操作延迟提升触控响应速度。对于长时间使用，建议连接充电器以避免电量快速消耗。</p>
+<img src="/img/article-3-3.webp" alt="UU远程控制手机端画质设置界面" style="max-width:100%;height:auto;border-radius:8px;margin:16px 0;">
 
+<p>移动端建议根据网络环境选择合适的画质档位。在4G或5G网络下，推荐使用均衡模式以节省流量；在WiFi环境下，可以选择高清或4K模式获得更好的视觉体验。还可以开启"触控优化"选项，降低操作延迟提升触控响应速度。对于长时间使用，建议连接充电器以避免电量快速消耗。</p>
+<p><strong>省电优化建议</strong>：远程控制对手机CPU和屏幕消耗较大，长时间使用时手机容易发热。建议将屏幕亮度调低到舒适水平，关闭不必要的后台应用，必要时使用散热背夹辅助降温。UU远程内置了智能省电模式，在电量低于20%时自动降低帧率和画质以延长使用时间。</p>
+<p><strong>流量消耗参考</strong>：均衡模式每小时约消耗200-400MB流量，4K模式每小时约消耗800MB-1.5GB流量。建议在移动数据环境下优先使用均衡模式，WiFi环境下可以放心使用高画质模式。</p>
 <h2>七、iOS与Android的主要差异</h2>
 <p>两个平台的功能基本一致，主要差异在于系统权限处理方式不同。iOS版需要授予本地网络权限才能发现局域网设备；Android版需要授予悬浮窗权限以显示快捷工具栏。此外，iOS版的虚拟键盘布局针对iPhone和iPad分别优化，iPad版提供更大的触控区域和更丰富的快捷键面板，体验更接近桌面端。</p>
+<p><strong>iOS独有功能</strong>：支持3D Touch/Haptic Touch快捷操作；支持iCloud同步设备列表和设置；支持Siri快捷指令"连接我的电脑"，语音即可发起远程连接；支持Split View分屏操作。</p>
+<p><strong>Android独有功能</strong>：支持悬浮窗快速操作；支持USB OTG连接有线手柄；支持DeX模式/桌面模式自适应；支持通知栏快捷连接按钮。部分安卓设备还支持PIP画中画模式，可以在使用其他应用时保持远程画面小窗显示。</p>
 <p>通过以上介绍，相信您已经掌握了手机远程控制电脑的方法。无论是在路上还是在家中，用手机操控电脑从未如此简单方便。</p>
-
 <div class="cta-box">
   <h3>立即下载UU远程控制</h3>
   <p>真4K蓝光画质/144帧/超低延迟/全免费，开始您的远程控制之旅</p>
@@ -179,11 +198,56 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <footer class="footer">
-  <p>&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
-  <div style="margin-top:10px">
-    <a href="https://www.uuyckz.com.cn/privacy-policy.html">隐私政策</a>
-    <a href="https://www.uuyckz.com.cn/terms-of-service.html">用户协议</a>
-    <a href="https://www.uuyckz.com.cn/cookie-policy.html">Cookie政策</a>
+  <div style="max-width:1100px;margin:0 auto;padding:40px 24px 20px">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:32px;text-align:left">
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">产品</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">官方下载</a>
+          <a href="https://www.uuyckz.com.cn/#features" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">功能介绍</a>
+          <a href="https://www.uuyckz.com.cn/articles.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">使用教程</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">常见问题</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">下载</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Windows版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">macOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">iOS版下载</a>
+          <a href="https://www.uuyckz.com.cn/dl/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Android版下载</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">教程</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/article-1.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">下载安装指南</a>
+          <a href="https://www.uuyckz.com.cn/article-3.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">手机远程教程</a>
+          <a href="https://www.uuyckz.com.cn/article-8.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">文件传输技巧</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">错误代码排查</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">关于</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">软件介绍</a>
+          <a href="https://www.uuyckz.com.cn/download.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">版本更新</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">安全保障</a>
+          <a href="https://www.uuyckz.com.cn/article-9.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">技术支持</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#f59e0b;font-size:0.95rem;font-weight:700;margin-bottom:14px">法律</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://www.uuyckz.com.cn/privacy-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">隐私政策</a>
+          <a href="https://www.uuyckz.com.cn/terms-of-service.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">用户协议</a>
+          <a href="https://www.uuyckz.com.cn/cookie-policy.html" style="color:#aa8888;font-size:0.84rem;transition:color 0.2s">Cookie政策</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(245,158,11,0.1);text-align:center">
+      <p style="color:#aa8888;font-size:0.82rem">&copy; 2025 广州网易计算机系统有限公司 版权所有</p>
+    </div>
   </div>
 </footer>
 </body>
